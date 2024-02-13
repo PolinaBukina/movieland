@@ -1,0 +1,33 @@
+.button {
+    display: inline-flex;
+    padding: 16px 32px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #7B61FF;
+    color: #FFF;
+    font-family: Exo 2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    border: none;
+    /* 133.333% */
+
+    &:hover {
+        background-color: #917CFF;
+        transition-duration: .2s;
+    }
+}
+
+.button.disabled {
+    color: #8D8E97;
+    background-color: #E8E8E8;
+}
+
+.button:disabled {
+    color: #8D8E97;
+    background-color: #E8E8E8;
+}

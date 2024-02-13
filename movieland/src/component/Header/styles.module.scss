@@ -1,0 +1,24 @@
+.header {
+    // margin: auto 0;
+    position: fixed;
+    // top: 0;
+    // left: 0;
+    display: flex;
+    align-items: center;
+    max-width: 1120px;
+    width: 100%;
+    padding: 10px 15px;
+
+
+    .logo {
+        color: #7B61FF;
+        font-size: 3em;
+        font-weight: bold;
+        margin: 0;
+        // margin: 1em 2em;
+
+        span {
+            color: #FFFFFF;
+        }
+    }
+}

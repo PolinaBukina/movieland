@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,13 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+body {
+  background-color: black;
+  background-image: url('../src/component/Icons/BackgroundToForm.png');
+  background-image: rgba(0, 0, 0, 0.5);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* backdrop-filter: blur(5px); */
 }

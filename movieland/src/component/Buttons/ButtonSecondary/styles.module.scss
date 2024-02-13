@@ -1,0 +1,36 @@
+.button {
+    display: inline-flex;
+    padding: 16px 32px;
+    // margin: 2em 0;
+    align-items: center;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 10px;
+    // background: #E8E8E8;
+    background-color: #323537;
+    color: #FFFFFF;
+    font-family: Exo 2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    border: none;
+
+    width: 100%;
+    justify-content: center;
+
+    &:hover {
+        background-color: #323537;
+        color: #AFB2B6;
+    }
+}
+
+.button.disabled {
+    color: #AFB2B6;
+    background-color: #80858B;
+}
+
+.button:disabled {
+    color: #AFB2B6;
+    background-color: #80858B;
+}

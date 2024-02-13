@@ -1,0 +1,59 @@
+.form {
+    // margin: 3em auto 5em;
+    margin: 0 auto 5em;
+    display: inline-flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: #242426;
+    border-radius: 10px;
+
+    .allInputs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+
+        .inpput {
+            gap: 10px;
+        }
+    }
+
+    .forgot {
+        color: #80858B;
+        font-family: Exo 2;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration: none;
+
+        margin-bottom: 2em;
+
+        &:hover {
+            color: #7B61FF;
+        }
+    }
+
+    .signup {
+        color: #80858B;
+        font-family: Exo 2;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration: none;
+
+        margin-bottom: 2em;
+
+        span {
+            color: #7B61FF;
+
+            &:hover {
+                color: #917CFF;
+            }
+
+        }
+    }
+}
