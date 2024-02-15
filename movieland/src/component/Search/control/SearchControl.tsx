@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { setClose, setOpen } from '../../../store/menu/actions'
+import { selectMenu } from '../../../store/menu/selectors'
 import { FilterIcon } from '../../Icons/FilterIcon'
 import styles from './styles.module.scss'
 
@@ -29,6 +32,12 @@ export const SearchControl = () => {
 
     }
 
+    const { isOpened } = useSelector(selectMenu)
+    const dispatch = useDispatch()
+
+    const open = () => dispatch(setOpen())
+    const close = () => dispatch(setClose())
+
     return (
         <div className={styles.container}>
             {
@@ -43,8 +52,7 @@ export const SearchControl = () => {
                         // onKeyDown={handleEnterSearch}
                         placeholder={'Search...'}
                     />
-                    <button className={styles.button} onClick={handleFilter} >
-                        {/* <CancelIcon /> */}
+                    <button className={styles.button} onClick={() => isOpened ? close() : open()} >
                         <FilterIcon />
                     </button>
                     {/* <input type="button" value={'search'} onChange={handleSearch} /> */}

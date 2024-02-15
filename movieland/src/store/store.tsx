@@ -2,11 +2,21 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import { combineReducers } from "redux"
 
 import { authReducer } from "./auth/reducer"
+import { openCardReducer } from "./content/reducer"
+import { burgerReducer } from "./menu/reducer"
+import { postsReducer } from "./posts/reducer"
 import { registrationReducer } from "./registration/reduser"
+import { tabReducer } from "./tabs/reducer"
+import { themeReducer } from "./theme/reducer"
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    reg: registrationReducer
+    reg: registrationReducer,
+    menu: burgerReducer,
+    tabs: tabReducer,
+    posts: postsReducer,
+    theme: themeReducer,
+    opencard: openCardReducer
 })
 
 const store = configureStore({

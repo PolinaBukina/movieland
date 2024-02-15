@@ -1,0 +1,92 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    position: fixed;
+    // position: relative;
+    top: 0;
+    right: 0;
+    width: 380px;
+    padding: 0 0 0 40px;
+    border-radius: 15px 0 0 15px;
+    height: 100vh;
+    background-color: #242426;
+    z-index: 2;
+
+    transition: width 0.3s ease-out;
+
+    .content {
+        transition: margin-right 0.3s ease-out;
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            font-family: Exo 2;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0em;
+            color: #FFFFFF;
+            align-items: center;
+
+            .buttonClose {
+                background-color: #29292900;
+                border: none;
+                cursor: pointer;
+
+                path {
+                    fill: #FFFFFF;
+
+                    &:hover {
+                        fill: #AFB2B6;
+                        transition-duration: .2s;
+                    }
+                }
+            }
+        }
+
+        .tab {
+            cursor: pointer;
+
+            p {
+                font-family: Exo 2;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #FFFFFF;
+            }
+        }
+
+        .filterMovie {
+            font-family: Exo 2;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #FFFFFF;
+
+            cursor: pointer;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .buttonsBottom {
+            display: flex;
+            flex-direction: row;
+
+            cursor: pointer;
+        }
+    }
+
+}
+
+.dark {
+    background-color: #292929;
+}

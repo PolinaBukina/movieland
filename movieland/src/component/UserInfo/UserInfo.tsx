@@ -3,6 +3,8 @@ import { act } from 'react-dom/test-utils'
 import { useAuthContext } from '../../helpers/authContext'
 import { useAuthState } from '../../store/auth/selectors'
 import { useRegState } from '../../store/registration/selectors'
+import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
+import { UserIcon } from '../Icons/UserIcon'
 import styles from './styles.module.scss'
 
 type Props = {
@@ -83,35 +85,37 @@ export const UserInfo = () => {
                 state.isLogined ? (
                     <>
                         <button className={styles.button}>
-                            <span className={styles.symbols}> {state.initials} </span>
-                            <span> {state.username} </span>
-                        </button>
-                        <nav className={styles.menu}>
-                            <ul className={styles.menuList}>
-                                <li className={styles.item}>Edit Profile</li>
-                                <li className={styles.item}>Log Out</li>
-                            </ul>
-                        </nav>
+                            <span className={styles.symbols}>
+                                {state.initials}
+                            </span>
+                            <span>
+                                {state.username}
+                            </span>
+                            <ArrowRightIcon />
+                            <nav className={styles.menu}>
+                                <ul className={styles.menuList}>
+                                    <button className={styles.buttonItem}>
+                                        <li className={styles.item}>Edit Profile</li>
+                                    </button>
+                                    <button className={styles.buttonItem}>
+                                        <li className={styles.item}>Log Out</li>
+                                    </button>
+                                </ul>
+                            </nav>
+                        </button> 
                     </>
                 ) : (
-                    <button className={styles.human}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
-                                stroke="white"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
-                                stroke="white"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-
+                    // <button className={styles.human}>
+                    <button className={styles.button}>
+                        <span className={styles.symbols}>
+                            <UserIcon />
+                        </span>
+                        <span>
+                            Sign In
+                        </span>
+                        <ArrowRightIcon />
                     </button>
+                    // </button>
                 )
             }
 
