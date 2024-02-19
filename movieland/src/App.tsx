@@ -16,6 +16,8 @@ import { NewPasswordPage } from './pages/NewPasswordPage/NewPasswordPage';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './component/Layout/Layout';
 import { MainPage } from './pages/MainPage/MainPage';
+import SettingsPage from './pages/SettingsPage/SettingsPage';
+import ContentPage from './pages/ContentPage/ContentPage';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
           {/* <Route path='mainpage2' element={<MainPage2 />} /> */}
           <Route path='signin' element={<SignInPage />} />
           <Route path='signup' element={<SignUpPage />} />
+          <Route path='settings' element={<SettingsPage />} />
+          <Route path='content:id' element={<ContentPage />} />
           {/* <Route path='register' element={<RegistrationPage />} />
         <Route path='search' element={<SearchPage />} /> */}
           {/* <Route path='newpassword' element={<NewPassword />} /> */}

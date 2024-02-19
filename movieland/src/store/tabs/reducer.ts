@@ -3,7 +3,7 @@ import { TabAction, TabState } from "./types"
 export const initState: TabState = {
     activeTab: 'All',
     activeIndex: 0,
-    tabs: ['All', 'Favorites', 'Popular']
+    tabs: ['Rating', 'Year']
 }
 
 export const tabReducer = (state = initState, action: TabAction): TabState => { //state i action здесь всегда!! state - предыдущее состояние, или текущее на данный момент

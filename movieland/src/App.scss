@@ -25,6 +25,8 @@ body {
   grid-template-columns: 20% 1fr;
   margin: 0;
 
+  height: 100vh;
+
   .leftMenu {
     width: 100%;
     grid-row: 2;

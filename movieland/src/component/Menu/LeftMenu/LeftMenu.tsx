@@ -83,7 +83,7 @@ const LeftMenu = () => {
                     </NavLink>
                 </button>
                 <button className={styles.button}>
-                    <NavLink to='/' >
+                    <NavLink to='/settings' >
                         <li
                         // style={{
                         //     background: theme === 'light' ? '' : '#1e1d1d',

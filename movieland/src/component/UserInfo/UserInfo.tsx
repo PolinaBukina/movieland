@@ -1,5 +1,6 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { act } from 'react-dom/test-utils'
+import { NavLink } from 'react-router-dom'
 import { useAuthContext } from '../../helpers/authContext'
 import { useAuthState } from '../../store/auth/selectors'
 import { useRegState } from '../../store/registration/selectors'
@@ -61,8 +62,8 @@ export const UserInfo = () => {
 
     const login = () => dispatch({
         type: 'login',
-        username: 'vasuay pupkin',
-        initials: 'VP'
+        username: 'polina bukina',
+        initials: 'PB'
     })
 
     const logout = () => dispatch({
@@ -95,14 +96,16 @@ export const UserInfo = () => {
                             <nav className={styles.menu}>
                                 <ul className={styles.menuList}>
                                     <button className={styles.buttonItem}>
-                                        <li className={styles.item}>Edit Profile</li>
+                                        <NavLink to='/signin'>
+                                            <li className={styles.item}>Edit Profile</li>
+                                        </NavLink>
                                     </button>
                                     <button className={styles.buttonItem}>
                                         <li className={styles.item}>Log Out</li>
                                     </button>
                                 </ul>
                             </nav>
-                        </button> 
+                        </button>
                     </>
                 ) : (
                     // <button className={styles.human}>

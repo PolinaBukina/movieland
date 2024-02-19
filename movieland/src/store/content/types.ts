@@ -1,20 +1,21 @@
 // import { BlogPostType } from "../posts/types"
 
 export type OpenState = {
-    id: string
-    text: string
-    title: string
-    image: string
+    Title: string,
+    Year: string,
+    imdbID: string,
+    Type: string,
+    Poster: string
     // data: BlogPostType[]
 }
 
 export type OpenAction = {
     type: string
-    id?: string
-    text?: string
-    title?: string
-    image?: string
+    Title?: string,
+    Year?: string,
+    imdbID?: string,
+    Type?: string,
+    Poster?: string
     // data?: BlogPostType[]
     // text?: string
 }
-

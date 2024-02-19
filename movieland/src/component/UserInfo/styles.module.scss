@@ -1,48 +1,54 @@
-.button {
-    background-color: #2232aa00;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: Exo 2;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 34px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    height: 56px;
-    width: 100%;
-    padding: 0;
+.userInfo {
+    width: 25%;
 
-    .symbols {
-        border-radius: 10px;
-        background: #7B61FF;
+    .button {
+        background-color: #2232aa00;
         color: #FFFFFF;
-
         text-align: center;
         font-family: Exo 2;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
         line-height: 34px;
-
-        width: 56px;
-        height: 56px;
-        flex-shrink: 0;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+        border: none;
+        height: 56px;
+        width: 100%;
+        padding: 0;
+
+        .symbols {
+            border-radius: 10px;
+            background: #7B61FF;
+            color: #FFFFFF;
+
+            text-align: center;
+            font-family: Exo 2;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 34px;
+
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
+
+
 
 .menu {
     position: absolute;
     top: calc(100% + 5px);
-    right: 10px;
-    width: 10%;
+    // right: 10px;
+    // width: 20%;
     background-color: #242426;
-    padding: 25px;
+    padding: 25px 0;
     border-radius: 10px;
     border: 1px solid #2231AA;
 

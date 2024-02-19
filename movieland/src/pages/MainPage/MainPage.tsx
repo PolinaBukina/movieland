@@ -10,7 +10,7 @@ import { Title } from '../../component/Ttitle/Title'
 export const MainPage = () => {
     return (
         <>
-            <Title name={'Blog'} />
+
             <Card />
             {/* <BlogPostNavigation /> */}
         </>

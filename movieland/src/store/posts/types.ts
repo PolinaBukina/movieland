@@ -15,12 +15,18 @@ export type PostsAction = {
 }
 
 export type BlogPostType = {
-    id: number,
-    image: string,
-    text: string,
-    date: string,
-    lesson_num: 0,
-    title: string,
-    description: string,
-    author: number
+    // id: number,
+    // image: string,
+    // text: string,
+    // date: string,
+    // lesson_num: 0,
+    // title: string,
+    // description: string,
+    // author: number
+
+    Title: string,
+    Year: string,
+    imdbID: string,
+    Type: string,
+    Poster: string
 } 

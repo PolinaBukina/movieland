@@ -51,6 +51,7 @@ export const Card = () => {
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
 
+
     // const imageUrl = useSelector((state: AppState) => state.modal.img)
 
     useEffect(() => {
@@ -78,50 +79,34 @@ export const Card = () => {
         <div className={`${styles.cardContent} ${theme}`} >
             {
                 postlist.map((item, index) => (
-                    <div key={item.id} className={styles.card} >
+                    <div key={item.imdbID} className={styles.card} >
                         {/* <div key={item.id} className={styles.card}> */}
                         <div className={styles.allText}>
                             <div className={styles.text}>
-                                <p className={styles.date}>
-                                    {item.date}
-                                </p>
-                                <h1 className={styles.header} onClick={() => handleOpen(item.id)}
+                                {/* <p className={styles.date}>
+                                    {item.Year}
+                                </p> */}
+                                <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
                                     style={{
                                         color: theme === 'light' ? '' : '#FFFFFF'
                                     }}
                                 >
-                                    {item.title}
+                                    {item.Title}
+                                    {item.imdbID}
                                 </h1>
                                 <p className={styles.description}
                                     style={{
                                         color: theme === 'light' ? '' : '#FFFFFF'
                                     }}
                                 >
-                                    {item.text}
+                                    {item.Type}
                                 </p>
                             </div>
                             <div>
                                 {/* <img className={styles.image} src={item.image} onClick={() => handleModalOpen(item.id)} /> */}
-                                <img className={styles.image} src={item.image} />
-                                {/* {isModalActive && (
-                                    <Modal onClose={handleModalClose}>
-                                        <img className={styles.image1} src={image} />
-                                    </Modal>
-                                )} */}
+                                <img className={styles.image} src={item.Poster} />
                             </div>
                         </div>
-
-                        {/* <div className={styles.allButtons}>
-                            <div className={styles.buttons}>
-                                {/* <button onClick={() => handleAddFavorite(item.id)}>
-                                <button onClick={() => handleAddFavorite(item.id)}>
-                                    <Icon />
-                                </button>
-                                <button>
-                                    <MoreIcon />
-                                </button>
-                            </div> */}
-                        {/* </div> */}
                     </div>
                 ))
             }

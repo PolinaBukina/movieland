@@ -1,11 +1,16 @@
 import { OpenState, OpenAction } from './types'
 
 const initState: OpenState = {
-    id: '',
-    text: '',
-    title: '',
-    image: ''
+    // id: '',
+    // text: '',
+    // title: '',
+    // image: ''
     // data: []
+    Title: '',
+    Year: '',
+    imdbID: '',
+    Type: '',
+    Poster: ''
 }
 
 export const openCardReducer = (state: OpenState = initState, action: OpenAction): OpenState => {
@@ -13,15 +18,16 @@ export const openCardReducer = (state: OpenState = initState, action: OpenAction
         case 'SAVE_OPEN_CARD':
             return {
                 ...state,
-                id: action.id || ''
+                imdbID: action.imdbID || ''
             }
         case 'SAVE_OPEN_DATA':
             return {
                 ...state,
-                text: action.text!,
-                title: action.title!,
-                image: action.image!
-                // data: action.data || []
+                Title: action.Title!,
+                Year: action.Year!,
+                imdbID: action.imdbID!,
+                Type: action.Type!,
+                Poster: action.Poster!
             }
         default:
             return state

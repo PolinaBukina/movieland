@@ -1,0 +1,39 @@
+.container {
+    margin: 7em 0 3em;
+    display: flex;
+    flex-direction: row;
+
+    .image {
+        border-radius: 20px;
+
+        .buttons {
+            margin-top: 1em;
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+            background-color: #323537;
+
+            .button {
+                width: 100%;
+                border: none;
+                background-color: #00000000;
+                padding: 1em 0;
+                border: 1px solid black;
+
+                &:hover {
+                    path {
+                        fill: #FFFFFF;
+                        // stroke: red;
+                    }
+
+                    circle {
+                        stroke: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+
+    .content {}
+
+}

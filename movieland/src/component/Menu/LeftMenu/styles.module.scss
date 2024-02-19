@@ -13,9 +13,10 @@
 
     display: flex;
     flex-direction: column;
-    top: 0;
+    position: fixed;
     height: 100%;
     background-color: black;
+    justify-content: space-between;
 
     .logo {
         color: #7B61FF;
@@ -37,10 +38,10 @@
     ul {
         display: flex;
         flex-direction: column;
-        padding: 0;
-        margin: 0;
-        position: relative;
-        top: 84px;
+        // padding: 0;
+        // margin: 0;
+        // position: relative;
+        // top: 84px;
 
         .button {
             padding: 0;
