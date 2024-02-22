@@ -12,21 +12,40 @@ export const saveIdAction = (imdbID: string): OpenAction => {
 export const saveOpenDataAction = (
     Title: string,
     Year: string,
-    // imdbID: string,
+    Rated: string,
+    Released: string,
+    Runtime: string,
+    Genre: string,
+    Director: string,
+    Writer: string,
+    Actors: string,
+    imdbID: string,
+    Plot: string,
+    Language: string,
+    Country: string,
+    Awards: string,
     Type: string,
-    Poster: string
+    Poster: string,
+    Ratings: string
 ): OpenAction => {
     return {
         type: 'SAVE_OPEN_DATA',
-        // text: text,
-        // title: title,
-        // image: image
-
         Title: Title,
         Year: Year,
-        // imdbID: imdbID,
         Type: Type,
-        Poster: Poster
+        Poster: Poster,
+        Rated: Rated,
+        Released: Released,
+        Runtime: Runtime,
+        Genre: Genre,
+        Director: Director,
+        Writer: Writer,
+        Actors: Actors,
+        Plot: Plot,
+        Language: Language,
+        Country: Country,
+        Awards: Awards,
+        Ratings: Ratings
         // data: data
     }
 }
@@ -37,11 +56,29 @@ export const startOpenAction = (): AppThunk => {
         const aplikey = '3a486bd1'
 
         // const url = `https://www.omdbapi.com/?apikey=${aplikey}&i=${imdbID}`
-        const url = `https://www.omdbapi.com/?apikey=3a486bd1&i=${imdbID}`
+        const url = `https://www.omdbapi.com/?apikey=${aplikey}&i=${imdbID}&plot=full`
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                dispatch(saveOpenDataAction(data.Title, data.Year, data.Type, data.Poster))
+                dispatch(saveOpenDataAction(
+                    data.Title,
+                    data.Year,
+                    data.Rated,
+                    data.Released,
+                    data.Runtime,
+                    data.Genre,
+                    data.Director,
+                    data.Writer,
+                    data.Actors,
+                    data.imdbID,
+                    data.Plot,
+                    data.Language,
+                    data.Country,
+                    data.Awards,
+                    data.Type,
+                    data.Poster,
+                    data.Ratings
+                ))
                 // console.log(data.Title, data.Year, data.Type, data.Poster)
                 // console.log(data)
                 console.log(imdbID)

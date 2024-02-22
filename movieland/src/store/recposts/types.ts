@@ -1,4 +1,4 @@
-export type PostsState = {
+export type RecPostsState = {
     postlist: BlogPostType[]
     limit: number
     // offset: number
@@ -7,7 +7,7 @@ export type PostsState = {
     // active например
 }
 
-export type PostsAction = {
+export type RecPostsAction = {
     type: string //LOAD_POST
     postList?: BlogPostType[]
     page?: number

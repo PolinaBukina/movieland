@@ -3,9 +3,12 @@ import { combineReducers } from "redux"
 
 import { authReducer } from "./auth/reducer"
 import { openCardReducer } from "./content/reducer"
+import { favoriteReducer } from "./favorites/reducer"
 import { burgerReducer } from "./menu/reducer"
 import { postsReducer } from "./posts/reducer"
+import { recPostsReducer } from "./recposts/reducer"
 import { registrationReducer } from "./registration/reduser"
+import { searchReducer } from "./search/reducer"
 import { tabReducer } from "./tabs/reducer"
 import { themeReducer } from "./theme/reducer"
 
@@ -15,8 +18,11 @@ const rootReducer = combineReducers({
     menu: burgerReducer,
     tabs: tabReducer,
     posts: postsReducer,
+    recposts: recPostsReducer,
     theme: themeReducer,
-    opencard: openCardReducer
+    opencard: openCardReducer,
+    search: searchReducer,
+    favorite: favoriteReducer
 })
 
 const store = configureStore({

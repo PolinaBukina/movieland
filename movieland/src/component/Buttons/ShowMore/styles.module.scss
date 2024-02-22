@@ -1,0 +1,53 @@
+.container {
+    // margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .button {
+        display: flex;
+
+        padding: 1em 2em;
+        background-color: #323537;
+        border-radius: 40px;
+        border: none;
+
+        font-family: Exo 2;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #AFB2B6;
+
+        &:hover {
+            color: #FFFFFF;
+        }
+
+        p {
+            margin: 0 1em 0 0;
+            display: flex;
+        }
+    }
+
+    .loader {
+        width: 20px;
+        height: 20px;
+        border: 2.5px solid #7B61FF;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

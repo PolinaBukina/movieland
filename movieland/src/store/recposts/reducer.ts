@@ -1,6 +1,6 @@
-import { PostsAction, PostsState } from "./types"
+import { RecPostsAction, RecPostsState } from "./types"
 
-const initState: PostsState = {
+const initState: RecPostsState = {
     postlist: [],
     limit: 10,
     // offset: 0,
@@ -8,7 +8,7 @@ const initState: PostsState = {
     postCount: 0
 }
 
-export const postsReducer = (state = initState, action: PostsAction): PostsState => { //state i action здесь всегда!! state - предыдущее состояние, или текущее на данный момент
+export const recPostsReducer = (state = initState, action: RecPostsAction): RecPostsState => { //state i action здесь всегда!! state - предыдущее состояние, или текущее на данный момент
     switch (action.type) {
         case 'LOAD_POSTS':
             return {
