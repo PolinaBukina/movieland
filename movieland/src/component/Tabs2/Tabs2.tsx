@@ -40,12 +40,6 @@ export const Tabs2 = () => {
         dispatch(setTabAction(index))
     }
 
-    const navigateTabHandler = (text: string) => {
-        if (text == 'favorites') {
-            navigate('/favorites')
-        }
-    }
-
     return (
         <div className={`${styles.all} ${theme}`}>
             <div className={styles.tabsWrapper}>

@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { selectMenu } from '../../store/menu/selectors'
 import LeftMenu from '../Menu/LeftMenu/LeftMenu'
 import { selectTheme } from '../../store/theme/selectors'
-import RightMenu from '../Menu/RightMenu/RightMenu'
+import { RightMenu } from '../Menu/RightMenu/RightMenu'
 // import { CardPost3 } from '../CardPost3/CardPost3'
 
 const Layout = () => {
@@ -33,7 +33,7 @@ const Layout = () => {
                     <Outlet />
                 </div>
             </main>
-            
+
             {/* <Footer /> */}
             {/* 
             <Header />

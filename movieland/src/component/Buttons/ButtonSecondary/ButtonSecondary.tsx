@@ -6,6 +6,7 @@ import styles from './styles.module.scss'
 type Props = {
     name: string
     disabled?: boolean
+    onClick?: () => void
 }
 
 export const ButtonSecondary = (props: Props) => {

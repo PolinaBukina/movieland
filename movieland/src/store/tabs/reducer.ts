@@ -2,7 +2,7 @@ import { TabAction, TabState } from "./types"
 
 export const initState: TabState = {
     activeTab: 'All',
-    activeIndex: 0,
+    activeIndex: 1,
     tabs: ['Rating', 'Year']
 }
 

@@ -65,6 +65,7 @@ export const Card = () => {
         dispatch(saveIdAction(key))
         dispatch(startOpenAction())
         navigate(`/content:id`)
+        document.documentElement.scrollTop = 0
     }
 
     const handleMore = () => {
@@ -119,12 +120,12 @@ export const Card = () => {
             </div>
             {/* <ShowMore onClick={handleMore} /> */}
 
-            <button className={styles.button} onClick={handleMore}>
+            {/* <button className={styles.button} onClick={handleMore}>
                 <p>
                     Show more
                 </p>
                 <span className={styles.loader}></span>
-            </button>
+            </button> */}
         </>
     )
 }

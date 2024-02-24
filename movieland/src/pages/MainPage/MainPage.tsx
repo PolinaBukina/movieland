@@ -20,6 +20,7 @@ export const MainPage = () => {
         <>
             <Card />
             {/* <ShowMore onClick={() => handleShowMore} /> */}
+            <ShowMore />
             {/* <BlogPostNavigation /> */}
         </>
     )

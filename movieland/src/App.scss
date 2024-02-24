@@ -9,15 +9,16 @@ body {
   /* backdrop-filter: blur(5px); */
 }
 
-/* .dark {
-  background-color: #313037;
+.dark {
+  // background-color: black;
   color: #f3f3f3;
 }
 
 .light {
   background-color: #f3f3f3;
-  color: #313037;
-} */
+  background-color: black;
+  /* color: #313037; */
+}
 
 .main {
   display: grid;

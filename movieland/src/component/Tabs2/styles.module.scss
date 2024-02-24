@@ -3,10 +3,12 @@
     // border-bottom: 1px solid #DADADA;
     margin-bottom: 2em;
 
+    background-color: #242426;
+
     .tabsWrapper {
         // display: flex;
         // width: 100%;
-
+        width: 90%;
         // width: 45%;
         display: inline-flex;
         justify-content: center;
@@ -43,8 +45,10 @@
 
 }
 
+
 .tab {
-    padding: 24px 40px 24px 40px;
+    padding: 1em 85%;
+    border-radius: 0 5px 5px 0;
     border-bottom: 3px solid rgba(255, 255, 255, 0);
     transition-duration: .2s;
 

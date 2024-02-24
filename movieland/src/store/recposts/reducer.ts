@@ -5,7 +5,8 @@ const initState: RecPostsState = {
     limit: 10,
     // offset: 0,
     page: 1,
-    postCount: 0
+    postCount: 0,
+    Type: ''
 }
 
 export const recPostsReducer = (state = initState, action: RecPostsAction): RecPostsState => { //state i action здесь всегда!! state - предыдущее состояние, или текущее на данный момент
@@ -21,6 +22,11 @@ export const recPostsReducer = (state = initState, action: RecPostsAction): RecP
             return {
                 ...state,
                 page: action.page!
+            }
+        case 'SET_TYPE':
+            return {
+                ...state,
+                Type: action.Type!
             }
         default:
             return state

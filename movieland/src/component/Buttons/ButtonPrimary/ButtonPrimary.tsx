@@ -15,8 +15,5 @@ export const ButtonPrimary = (props: Props) => {
         <button className={styles.button}>
             {props.name} {props.disabled}
         </button >
-        // <input type={'button'} className={styles.button}>
-        //     {props.name} {props.disabled}
-        // </input >
     )
 }

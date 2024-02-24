@@ -26,6 +26,7 @@ export const CardRec = () => {
         dispatch(saveIdAction(key))
         dispatch(startOpenAction())
         navigate(`/content:id`)
+        document.documentElement.scrollTop = 0
     }
 
     // const handleAddFavorite = (key: any) => {

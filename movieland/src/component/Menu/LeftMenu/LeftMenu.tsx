@@ -59,7 +59,7 @@ const LeftMenu = () => {
                     </NavLink>
                 </button>
                 <button className={styles.button}>
-                    <NavLink to='/' >
+                    <NavLink to='/trends' >
                         <li
                         // style={{
                         //     background: theme === 'light' ? '' : '#1e1d1d',
@@ -71,7 +71,7 @@ const LeftMenu = () => {
                     </NavLink>
                 </button>
                 <button className={styles.button}>
-                    <NavLink to='/' >
+                    <NavLink to='/favorites' >
                         <li
                         // style={{
                         //     background: theme === 'light' ? '' : '#1e1d1d',

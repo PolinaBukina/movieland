@@ -8,6 +8,7 @@ import { signInAction } from '../../../store/auth/actions'
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary'
 import { InputText } from '../../InputText/InputText'
 import { Title } from '../../Ttitle/Title'
+import { selectTheme } from '../../../store/theme/selectors'
 
 type AuthType = {
     email: string
@@ -21,7 +22,7 @@ export const SignInForm = () => {
     const [errors, setErrors] = useState<Partial<AuthType>>({})
     const dispatch = useAppDispatch()
     const authState = useAuthState()
-    // const { theme } = useSelector(selectTheme)
+    const { theme } = useSelector(selectTheme)
 
     const navigate = useNavigate()
 
@@ -86,10 +87,9 @@ export const SignInForm = () => {
     }
 
     return (
-        // <div>
         <form className={styles.form} onClick={signIn}>
-            {/* <div className={`${styles.allInputs} ${theme}`}> */}
-            <div className={`${styles.allInputs}`}>
+            <div className={`${styles.allInputs} ${theme}`}>
+                {/* <div className={`${styles.allInputs}`}> */}
                 <Title name={'Sign In'} />
                 {
                     authState.errors?.detail && <div style={{ color: 'red' }}>
@@ -97,38 +97,27 @@ export const SignInForm = () => {
                     </div>
                 }
 
-
-                <div className={styles.input}>
-                    <InputText
-                        name={'Email'}
-                        type={'email'}
-                        placeholder={'Your Email'}
-                        errors={errors.email}
-                        onChange={handleEmail}
-                    // ref1={inputRef}
-                    />
-                </div>
-
-                <div className={styles.input}>
-                    <InputText
-                        // errors={errors.password}
-                        name={'Password'}
-                        type={'password'}
-                        placeholder={'Your Password'}
-                        errors={errors.password}
-                        onChange={handlePassword}
-                    // style={{
-                    //     border: 
-                    // }}
-                    />
-                </div>
+                <InputText
+                    name={'Email'}
+                    type={'email'}
+                    placeholder={'Your Email'}
+                    errors={errors.email}
+                    onChange={handleEmail}
+                />
+                <InputText
+                    name={'Password'}
+                    type={'password'}
+                    placeholder={'Your Password'}
+                    errors={errors.password}
+                    onChange={handlePassword}
+                />
             </div>
             <NavLink
                 to='/reset'
                 className={styles.forgot}
-            // style={{
-            //     color: theme === 'light' ? '' : '#FFFFFF'
-            // }}
+                style={{
+                    color: theme === 'light' ? '' : '#FFFFFF'
+                }}
             >
                 Forgot your password?
             </NavLink>
@@ -140,9 +129,9 @@ export const SignInForm = () => {
             <NavLink
                 to='/sigup'
                 className={styles.signup}
-            // style={{
-            //     color: theme === 'light' ? '' : '#FFFFFF'
-            // }}
+                style={{
+                    color: theme === 'light' ? '' : '#FFFFFF'
+                }}
             >
                 Don’t have an account? <span>Sign Up</span>
             </NavLink>

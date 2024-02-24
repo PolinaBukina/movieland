@@ -21,16 +21,16 @@ export const loadPostsAsyncAction = (page: number = 1): AppThunk => {
         const aplikey = '3a486bd1'
         // const type = 'series'
         const type = 'movie'
-        const s = 'series'
+        const s = 'movie'
 
         // fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=${limit}&offset=${offset}`)
-        // fetch(`http://www.omdbapi.com/?s=${s}&type=${type}&apikey=${aplikey}&page=${limit}`)
+        // fetch(`http://www.omdbapi.com/?s=${s}&type=${type}&apikey=${aplikey}&page=1`)
         fetch(`http://www.omdbapi.com/?s=series&type=series&apikey=3a486bd1&page=1`)
             // fetch(`http://www.omdbapi.com/?s=series&type=series&apikey=3a486bd1&page=1`)
             .then(res => res.json())
             .then(res => {
                 dispatch(loadPostsAction(res.Search))
-                console.log(res.Search)
+                // console.log(res.Search)
             })
     }
 }

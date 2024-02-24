@@ -19,6 +19,9 @@ import { MainPage } from './pages/MainPage/MainPage';
 import SettingsPage from './pages/SettingsPage/SettingsPage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 import { ContentPage } from './pages/ContentPage/ContentPage';
+import { Favorites } from './component/Favorites/Favorites';
+import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
+import { TrendsPage } from './pages/TrendsPage/TrendsPage';
 
 function App() {
   return (
@@ -49,6 +52,8 @@ function App() {
           <Route path='settings' element={<SettingsPage />} />
           <Route path='content:id' element={<ContentPage />} />
           <Route path='search' element={<SearchPage />} />
+          <Route path='favorites' element={<FavoritesPage />} />
+          <Route path='trends' element={<TrendsPage />} />
           {/* <Route path='register' element={<RegistrationPage />} />
         <Route path='search' element={<SearchPage />} /> */}
           {/* <Route path='newpassword' element={<NewPassword />} /> */}

@@ -4,6 +4,7 @@ export type RecPostsState = {
     // offset: number
     page: number
     postCount: number
+    Type: string
     // active например
 }
 
@@ -12,6 +13,7 @@ export type RecPostsAction = {
     postList?: BlogPostType[]
     page?: number
     postCount?: number
+    Type?: string
 }
 
 export type BlogPostType = {

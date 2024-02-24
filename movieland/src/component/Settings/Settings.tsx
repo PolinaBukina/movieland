@@ -1,5 +1,6 @@
 import React from 'react'
 import { InputText } from '../../component/InputText/InputText'
+import { ThemeButtons } from '../ThemeButtons/ThemeButtons'
 import styles from './styles.module.scss'
 
 export const Settings = () => {
@@ -19,10 +20,25 @@ export const Settings = () => {
                     Password
                 </h1>
                 <div className={styles.passwordInfo}>
-                    <input />
+                    {/* <input /> */}
+                    <div className={styles.passwordOld}>
+                        <InputText
+                            name={'Password'}
+                            type={'text'}
+                            placeholder={'Your Password'}
+                        />
+                    </div>
                     <div className={styles.passwordNew}>
-                        <input />
-                        <input />
+                        <InputText
+                            name={'New password'}
+                            type={'password'}
+                            placeholder={'Confirm your Password'}
+                        />
+                        <InputText
+                            name={'Confirm your password'}
+                            type={'password'}
+                            placeholder={'Confirm your Password'}
+                        />
                     </div>
                 </div>
             </div>
@@ -31,7 +47,10 @@ export const Settings = () => {
                     Color Mode
                 </h1>
                 <div className={styles.switch}>
-                    tuda-suda
+                    <p>
+                        Use dark thema
+                    </p>
+                    <ThemeButtons />
                 </div>
             </div>
         </div>

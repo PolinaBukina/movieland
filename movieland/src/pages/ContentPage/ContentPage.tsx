@@ -87,20 +87,21 @@ export const ContentPage = () => {
                         {Title}
                     </h2>
                 </div>
+
                 <div className={styles.description}>
                     {Plot}
-                </div>
-                <div className={styles.text}>
-                    Rated {Rated} <br />
-                    Relased {Released} <br />
-                    Runtime {Runtime} <br />
-                    Genre {Genre} <br />
-                    Acors {Actors} <br />
-                    Language {Language} <br />
-                    Country {Country} <br />
-                    Awards {Awards} <br />
-                    Director {Director} <br />
-                    Writes {Writer} <br />
+                    <div className={styles.text}>
+                        <p>Rated</p> <p>{Rated}</p>
+                        <p>Relased</p> {Released}
+                        <p>Runtime</p> {Runtime}
+                        <p>Genre</p> {Genre}
+                        <p>Acors</p> {Actors}
+                        <p>Language</p> {Language}
+                        <p>Country</p> {Country}
+                        <p>Awards</p> {Awards}
+                        <p>Director</p> {Director}
+                        <p>Writer</p> {Writer}
+                    </div>
                 </div>
 
                 <div className={styles.recommendations}>
@@ -115,7 +116,3 @@ export const ContentPage = () => {
         </div>
     )
 }
-function copy(currentURL: string) {
-    throw new Error('Function not implemented.')
-}
-

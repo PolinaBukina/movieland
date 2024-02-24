@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 // import { UserInfo } from '../UserInfo/UserInfo'
 // import { ThemeButtons } from '../ThemeButtons/ThemeButtons'
 // import { ButtonSecondary } from '../ButtonSecondary/ButtonSecondary'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { selectMenu } from '../../../store/menu/selectors'
 import { useAuthState } from '../../../store/auth/selectors'
 import { UserInfo } from '../../UserInfo/UserInfo'
@@ -110,24 +110,93 @@ import { ButtonSecondary } from '../../Buttons/ButtonSecondary/ButtonSecondary'
 // export default RightMenu
 
 
-import React from 'react'
+import React, { ChangeEvent, FormEvent, KeyboardEvent, MouseEvent, useState } from 'react'
 import { CloseIcon } from '../../Icons/CloseIcon'
 import { Tabs2 } from '../../Tabs2/Tabs2'
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary'
 import { setClose } from '../../../store/menu/actions'
+import { InputText } from '../../InputText/InputText'
+import { useSearchState } from '../../../store/search/selectors'
+import { clearTextAction, saveGenreAction, saveTextAction, startSearchAction, saveRatingsToAction, saveRatingsFromAction, saveYearsToAction, saveYearsFromAction } from '../../../store/search/actions'
+import { useAppDispatch } from '../../../helpers/useAppDispatch'
+import Select from '../../Select/Select'
 
-const RightMenu = () => {
+// type SearchType = {
+//     genre?: string
+//     name?: string
+//     detail: string
+// }
+
+export const RightMenu = () => {
     const { isOpened } = useSelector(selectMenu)
     const { isAuthhorized } = useAuthState()
-    const dispatch = useDispatch()
+    // const [data, setData] = useState<Partial<SearchType>>({})
+    const dispatch = useAppDispatch()
     const close = () => dispatch(setClose())
+
+    const { text, genre, yearsFrom, yearsTo, ratingFrom, ratingTo } = useSearchState()
+    const navigate = useNavigate()
+
+    const handleText = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(saveTextAction(e.target.value))
+    }
+
+    const handleGenre = (e: ChangeEvent<HTMLInputElement>) => { // 
+        dispatch(saveGenreAction(e.target.value))
+    }
+
+    const handleCountry = (e: ChangeEvent<HTMLSelectElement>) => { // 
+        dispatch(saveCountryAction(e.target.value)) //
+    }
+
+    const handleYearsFrom = (e: ChangeEvent<HTMLInputElement>) => { // 
+        dispatch(saveYearsFromAction(e.target.value))
+    }
+
+    const handleYearsTo = (e: ChangeEvent<HTMLInputElement>) => { // 
+        dispatch(saveYearsToAction(e.target.value))
+    }
+
+    const handleRatingFrom = (e: ChangeEvent<HTMLInputElement>) => { // 
+        dispatch(saveRatingsFromAction(e.target.value))
+    }
+
+    const handleRatingTo = (e: ChangeEvent<HTMLInputElement>) => { // 
+        dispatch(saveRatingsToAction(e.target.value))
+    }
+
+    // const handleNameSearch = (e: KeyboardEvent<HTMLInputElement>): void => {
+    //     if (e.key === 'Enter') {
+    //         dispatch(startSearchAction()) //
+    //         // navigate('/search')
+    //         console.log()
+    //     }
+    // }
+
+    const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        if ((e.target as HTMLInputElement)?.type === 'submit') {
+            dispatch(clearTextAction('', '', '', '', '', ''))
+        }
+
+    }
+
+    const handleSearch = (e: FormEvent<HTMLFormElement>): void => {
+
+        e.preventDefault()
+        if ((e.target as HTMLInputElement)?.type === 'submit') {
+            navigate('/search')
+        }
+
+        dispatch(startSearchAction()) //
+    }
 
     if (!isOpened) {
         return null
     }
 
     return (
-        <div className={styles.menu}>
+        <form className={styles.menu} onClick={handleSearch}>
             <div className={styles.content}>
                 <div className={styles.header}>
                     <p>Filters</p>
@@ -142,42 +211,112 @@ const RightMenu = () => {
                 <div className={styles.filterMovie}>
                     <div>
                         <p>Full or short movie name</p>
-                        {/* <textarea /> */}
-                        <input />
+                        <input
+                            id={'search'}
+                            type="text"
+                            value={text}
+                            className={styles.input}
+                            onChange={handleText}
+                            // onKeyDown={handleNameSearch}
+                            placeholder={'Your Text'}
+                        />
+                    </div>
+                    <div className={styles.country}>
+                        <p>Country</p>
+                        {/* <Select /> */}
+                        <select className={styles.select} onChange={handleCountry}>
+                            <option className={styles.option} value="" >
+                                Select Country
+                            </option>
+                            <option className={styles.option} value="Germany">
+                                Germany
+                            </option>
+                            <option className={styles.option} value="United States">
+                                United States
+                            </option>
+                            <option className={styles.option} value="Canada">
+                                Canada
+                            </option>
+                            <option className={styles.option} value="Japan">
+                                Japan
+                            </option>
+                            {/* <option className={styles.option} value="movie">
+                                movie
+                            </option> */}
+                        </select>
                     </div>
                     <div>
                         <p>Genre</p>
-                        {/* <textarea /> */}
-                        <input />
+                        <input
+                            id={'search1'}
+                            type="text"
+                            value={genre}
+                            className={styles.input}
+                            onChange={handleGenre}
+                            // onKeyDown={handleGenreSearch}
+                            placeholder={'Your Text'}
+                        />
                     </div>
-                    <div>
+                    <div className={styles.years}>
                         <p>Years</p>
-                        <input />
-                        <input />
+                        <div className={styles.yearsInput}>
+                            <input
+                                id={'search2'}
+                                type="text"
+                                value={yearsFrom}
+                                className={styles.input}
+                                onChange={handleYearsFrom}
+                                // onKeyDown={handleEnterSearch}
+                                placeholder={'From'}
+                            />
+                            <input
+                                id={'search2'}
+                                type="text"
+                                value={yearsTo}
+                                className={styles.input}
+                                onChange={handleYearsTo}
+                                // onKeyDown={handleEnterSearch}
+                                placeholder={'To'}
+                            />
+                        </div>
                     </div>
-                    <div>
+                    <div className={styles.years}>
                         <p>Rating</p>
-                        <input />
-                        <input />
-                    </div>
-                    <div>
-                        <p>Country</p>
-                        <select>
-                            <option value="">-- Выберите город --</option>
-                            <option value="petersburg">Санкт-Петербург</option>
-                            <option value="samara">Самара</option>
-                            <option value="perm">Пермь</option>
-                            <option value="novosibirsk">Новосибирск</option>
-                        </select>
+                        <div className={styles.yearsInput}>
+
+                            <input
+                                id={'search2'}
+                                type="text"
+                                value={ratingFrom}
+                                className={styles.input}
+                                onChange={handleRatingFrom}
+                                // onKeyDown={handleEnterSearch}
+                                placeholder={'From'}
+                            />
+                            <input
+                                id={'search2'}
+                                type="text"
+                                value={ratingTo}
+                                className={styles.input}
+                                onChange={handleRatingTo}
+                                // onKeyDown={handleEnterSearch}
+                                placeholder={'To'}
+                            />
+                        </div>
+
                     </div>
                 </div>
-                <div className={styles.buttonsBottom}>
-                    <ButtonSecondary name={'Clear filter'} />
-                    <ButtonPrimary name={'Show results'} />
-                </div>
+
             </div>
-        </div>
+            <div className={styles.buttonsBottom}>
+                <ButtonSecondary name={'Clear filter'} onClick={() => handleClear} />
+                <ButtonPrimary name={'Show results'} onClick={() => handleSearch} />
+            </div>
+        </form>
+        // </div >
     )
 }
+function saveCountryAction(value: string): any {
+    throw new Error('Function not implemented.')
+}
 
-export default RightMenu

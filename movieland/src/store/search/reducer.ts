@@ -2,6 +2,7 @@ import { SearchState, SearchAction } from './types'
 
 const initState: SearchState = {
     text: '',
+    genre: '',
     data: []
 }
 
@@ -11,6 +12,11 @@ export const searchReducer = (state: SearchState = initState, action: SearchActi
             return {
                 ...state,
                 text: action.text || ''
+            }
+        case 'SAVE_SEARCH_GENRE':
+            return {
+                ...state,
+                genre: action.genre || ''
             }
         case 'SAVE_SEARCH_DATA':
             return {

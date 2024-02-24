@@ -50,10 +50,18 @@
         .passwordInfo {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+
+
+            .passwordOld {
+                width: 45%;
+            }
 
             .passwordNew {
                 display: flex;
                 flex-direction: column;
+                width: 45%;
+
             }
         }
     }
@@ -72,6 +80,11 @@
             letter-spacing: 0em;
             text-align: left;
             color: #FFFFFF;
+        }
+
+        .switch {
+            display: flex;
+            justify-content: space-between;
         }
 
         // .switch {}

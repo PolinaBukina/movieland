@@ -5,6 +5,8 @@
     gap: 2.5em;
 
     .image {
+        height: 350px;
+        width: 250px;
         border-radius: 20px;
 
         .buttons {
@@ -21,7 +23,10 @@
                 padding: 1em 0;
                 border: 1px solid black;
 
+
                 &:hover {
+                    transition-duration: .2s;
+
                     path {
                         fill: #FFFFFF;
                         // stroke: red;
@@ -37,7 +42,9 @@
 
     .content {
         color: #FFFFFF;
-        width: 100%;
+        width: 90%;
+        // display: grid;
+        // grid-template-rows: repeat(4, 1fr);
 
         .header {
             p {
@@ -63,6 +70,38 @@
                 color: #FFFFFF;
 
             }
+        }
+
+        .description {
+            // padding: 3em 0;
+
+            .text {
+                display: grid;
+                grid-template-columns: 15% 80%;
+                grid-template-rows: 10fr;
+
+                margin-top: 3em;
+                // gap: 5%;
+                // display: flex;
+                // flex-direction: column;
+                // margin: 50px;
+
+                p {
+                    margin: 0;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .recommendations {
+            margin-top: 2em;
+            font-family: Exo 2;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0em;
+            text-align: left;
+
         }
     }
 
