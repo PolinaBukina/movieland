@@ -62,7 +62,7 @@ export const UserInfo = () => {
 
     const login = () => dispatch({
         type: 'login',
-        username: 'polina bukina',
+        username: 'Polina Bukina',
         initials: 'PB'
     })
 
@@ -101,7 +101,7 @@ export const UserInfo = () => {
                                         </NavLink>
                                     </button>
                                     <button className={styles.buttonItem}>
-                                        <li className={styles.item}>Log Out</li>
+                                        <li className={styles.item} onClick={logout}>Log Out</li>
                                     </button>
                                 </ul>
                             </nav>

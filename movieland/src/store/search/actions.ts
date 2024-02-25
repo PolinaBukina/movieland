@@ -43,6 +43,12 @@ export const saveGenreAction = (genre: string): SearchAction => {
         genre: genre
     }
 }
+export const saveCountryAction = (country: string): SearchAction => {
+    return {
+        type: 'SAVE_SEARCH_COUNTRY',
+        country: country
+    }
+}
 
 export const clearTextAction = (text: string, genre: string, yearsFrom: string, yearsTo: string, ratingTo: string, ratingFrom: string): SearchAction => {
     return {

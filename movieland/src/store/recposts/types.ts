@@ -1,19 +1,19 @@
 export type RecPostsState = {
-    postlist: BlogPostType[]
-    limit: number
+    recpostlist: BlogPostType[]
+    reclimit: number
     // offset: number
     page: number
     postCount: number
-    Type: string
+    // Type: string
     // active например
 }
 
 export type RecPostsAction = {
-    type: string //LOAD_POST
-    postList?: BlogPostType[]
+    type: string 
+    recpostList?: BlogPostType[]
     page?: number
     postCount?: number
-    Type?: string
+    // Type?: string
 }
 
 export type BlogPostType = {

@@ -117,7 +117,7 @@ import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary'
 import { setClose } from '../../../store/menu/actions'
 import { InputText } from '../../InputText/InputText'
 import { useSearchState } from '../../../store/search/selectors'
-import { clearTextAction, saveGenreAction, saveTextAction, startSearchAction, saveRatingsToAction, saveRatingsFromAction, saveYearsToAction, saveYearsFromAction } from '../../../store/search/actions'
+import { clearTextAction, saveGenreAction, saveTextAction, startSearchAction, saveRatingsToAction, saveRatingsFromAction, saveYearsToAction, saveYearsFromAction, saveCountryAction } from '../../../store/search/actions'
 import { useAppDispatch } from '../../../helpers/useAppDispatch'
 import Select from '../../Select/Select'
 
@@ -316,7 +316,8 @@ export const RightMenu = () => {
         // </div >
     )
 }
-function saveCountryAction(value: string): any {
-    throw new Error('Function not implemented.')
-}
+
+// function saveCountryAction(value: string): any {
+//     throw new Error('Function not implemented.')
+// }
 

@@ -3,8 +3,9 @@ import { BlogPostType } from "../../helpers/Types"
 import { AppThunk } from "../store"
 import { PostsAction } from "./types"
 
-const loadPostsAction = (postList: BlogPostType[]): PostsAction => ({
+const loadPostsAction = (postList: BlogPostType[], page: number): PostsAction => ({
     type: 'LOAD_POSTS',
+    page: page,
     postList: postList
 })
 
@@ -20,16 +21,16 @@ export const loadPostsAsyncAction = (page: number = 1): AppThunk => {
         const { limit, offset } = getPageInfo(page)
         const aplikey = '3a486bd1'
         // const type = 'series'
-        const type = 'movie'
-        const s = 'movie'
+        const type = page % 2 === 0 ? 'series' : 'movie'
+        const s = 'series'
 
         // fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=${limit}&offset=${offset}`)
-        // fetch(`http://www.omdbapi.com/?s=${s}&type=${type}&apikey=${aplikey}&page=1`)
-        fetch(`http://www.omdbapi.com/?s=series&type=series&apikey=3a486bd1&page=1`)
+        fetch(`http://www.omdbapi.com/?s=${s}&type=${type}&apikey=${aplikey}&page=${page}`)
+            // fetch(`http://www.omdbapi.com/?s=series&type=series&apikey=3a486bd1&page=${page}`)
             // fetch(`http://www.omdbapi.com/?s=series&type=series&apikey=3a486bd1&page=1`)
             .then(res => res.json())
             .then(res => {
-                dispatch(loadPostsAction(res.Search))
+                dispatch(loadPostsAction(res.Search, page))
                 // console.log(res.Search)
             })
     }

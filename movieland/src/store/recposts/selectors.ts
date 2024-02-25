@@ -1,3 +1,3 @@
 import { AppState, appStore } from "../store";
 
-export const selectPosts = (globalState: AppState) => globalState.recposts
+export const selectRecPosts = (globalState: AppState) => globalState.recposts

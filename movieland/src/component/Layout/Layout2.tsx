@@ -12,7 +12,7 @@ import { selectTheme } from '../../store/theme/selectors'
 import { RightMenu } from '../Menu/RightMenu/RightMenu'
 // import { CardPost3 } from '../CardPost3/CardPost3'
 
-const Layout = () => {
+const Layout2 = () => {
     // const themeCtx = useThemeContext()
     const { theme } = useSelector(selectTheme)
     const { isOpened } = useSelector(selectMenu)
@@ -25,16 +25,18 @@ const Layout = () => {
                 {/* <div className='header'> */}
 
                 {/* </div> */}
-                <RightMenu />
+                {/* <RightMenu />
                 <div className='leftMenu'>
                     <LeftMenu />
                 </div>
                 <div className='content'>
                     <Outlet />
-                </div>
+                </div> */}
+
+                moviland
             </main>
         </div>
     )
 }
 
-export default Layout
+export default Layout2

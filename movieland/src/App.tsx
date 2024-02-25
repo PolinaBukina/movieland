@@ -43,19 +43,20 @@ function App() {
       {/* <Footer /> */}
 
       <Routes>
+        {/* <Route path='/' element={<Layout2 />}> */}
+        <Route path='signin' element={<SignInPage />} />
+        <Route path='signup' element={<SignUpPage />} />
+        <Route path='reset' element={<ResetPage />} />
+        {/* </Route> */}
         <Route path='/' element={<Layout />}>
           {/* стартовый путь */}
           <Route index element={<MainPage />} />
-          {/* <Route path='mainpage2' element={<MainPage2 />} /> */}
-          <Route path='signin' element={<SignInPage />} />
-          <Route path='signup' element={<SignUpPage />} />
           <Route path='settings' element={<SettingsPage />} />
           <Route path='content:id' element={<ContentPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='favorites' element={<FavoritesPage />} />
           <Route path='trends' element={<TrendsPage />} />
-          {/* <Route path='register' element={<RegistrationPage />} />
-        <Route path='search' element={<SearchPage />} /> */}
+
           {/* <Route path='newpassword' element={<NewPassword />} /> */}
           {/* <Route path='addpost' element={
           <RequireAuth>

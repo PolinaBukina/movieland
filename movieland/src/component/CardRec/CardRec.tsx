@@ -8,18 +8,20 @@ import { selectTheme } from '../../store/theme/selectors'
 import { loadPostsAsyncAction } from '../../store/posts/actions'
 import { saveIdAction, startOpenAction } from '../../store/content/actions'
 import { loadRecPostsAsyncAction } from '../../store/recposts/actions'
+import { selectRecPosts } from '../../store/recposts/selectors'
 
 export const CardRec = () => {
     // const [isModalActive, setModalActive] = useState(false)
     const { theme } = useSelector(selectTheme)
 
-    const { postlist, limit, page } = useSelector(selectPosts)
+    // const { postlist, limit, page } = useSelector(selectPosts)
+    const { recpostlist, reclimit, page } = useSelector(selectRecPosts)
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(loadRecPostsAsyncAction())
-    }, [limit])
+    }, [reclimit])
 
     const handleOpen = (key: any) => {
         console.log(key)
@@ -40,7 +42,7 @@ export const CardRec = () => {
         // <div className={`${styles.cardContent} ${theme}`}>
         <div className={`${styles.cardContent} ${theme}`} >
             {
-                postlist.map((item, index) => (
+                recpostlist.map((item, index) => (
                     <div key={item.imdbID} className={styles.card} >
                         <div className={styles.allText}>
                             <div className={styles.text}>

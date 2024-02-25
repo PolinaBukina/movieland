@@ -14,7 +14,10 @@ export const postsReducer = (state = initState, action: PostsAction): PostsState
             return {
                 ...state,
                 // postlist: action?.postList || []
-                postlist: action.postList!, // ! указывает что postlist всегда будет!!
+
+                postlist: action.page === 1 ? action?.postList || [] : [...state.postlist, ...action.postList!],
+
+                // postlist: [...state.postlist, ...action.postList!], // ! указывает что postlist всегда будет!!
                 postCount: action.postCount!
             }
         case 'SET_PAGE':

@@ -127,7 +127,7 @@ export const SignInForm = () => {
                 onClick={() => signIn}
             />
             <NavLink
-                to='/sigup'
+                to='/signup'
                 className={styles.signup}
                 style={{
                     color: theme === 'light' ? '' : '#FFFFFF'

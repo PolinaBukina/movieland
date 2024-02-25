@@ -27,7 +27,23 @@
         .profileInfo {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
+
+            div {
+                width: 45%;
+                height: 56px;
+                background-color: #323537;
+                border-radius: 10px;
+
+
+                color: #FFFFFF;
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    margin-left: .5em;
+                }
+            }
         }
     }
 
@@ -51,7 +67,6 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-
 
             .passwordOld {
                 width: 45%;

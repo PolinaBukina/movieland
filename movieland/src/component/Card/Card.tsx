@@ -67,11 +67,7 @@ export const Card = () => {
         navigate(`/content:id`)
         document.documentElement.scrollTop = 0
     }
-
-    const handleMore = () => {
-        console.log('rar')
-    }
-
+ 
     // const handleAddFavorite = (key: any) => {
     //     dispatch(addToFavoritesAction(key))
     //     console.log(key)

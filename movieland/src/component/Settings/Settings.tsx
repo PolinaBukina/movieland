@@ -11,8 +11,12 @@ export const Settings = () => {
                     Profile
                 </h1>
                 <div className={styles.profileInfo}>
-                    <div>name</div>
-                    <div>email</div>
+                    <div>
+                        <p>Polina Bukina</p>
+                    </div>
+                    <div>
+                        <p>pbukina501@gmail.com</p>
+                    </div>
                 </div>
             </div>
             <div className={styles.password}>

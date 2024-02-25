@@ -40,6 +40,7 @@ export const openCardReducer = (state: OpenState = initState, action: OpenAction
         case 'SAVE_OPEN_DATA':
             return {
                 ...state,
+                imdbID: action.imdbID!,
                 Title: action.Title!,
                 Year: action.Year!,
                 Rated: action.Rated!,
@@ -49,7 +50,6 @@ export const openCardReducer = (state: OpenState = initState, action: OpenAction
                 Director: action.Director!,
                 Writer: action.Writer!,
                 Actors: action.Actors!,
-                imdbID: action.imdbID!,
                 Plot: action.Plot!,
                 Language: action.Language!,
                 Country: action.Country!,
