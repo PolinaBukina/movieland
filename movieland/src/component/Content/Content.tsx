@@ -6,20 +6,15 @@ import { ShareIcon } from '../../component/Icons/ShareIcon'
 import { useOpenState } from '../../store/content/selectors'
 import styles from './styles.module.scss'
 import clipboardCopy from 'clipboard-copy'
-import { saveFavoriteAction, startFavoriteAction } from '../../store/favorites/actions'
+import { removeFavoriteAction, saveFavoriteAction, startFavoriteAction } from '../../store/favorites/actions'
 import { useAppDispatch } from '../../helpers/useAppDispatch'
 import { useNavigate } from 'react-router-dom'
 import { BlogPostType } from '../../helpers/Types'
 
-// type Props = {
-//     // onCopyBlock: (item: BlogPostType) => void;
-//     onCopyBlock: string;
-// }
-
-// export const Content = ({ onCopyBlock }: Props) => {
 export const Content = () => {
     // const { Title, Year, imdbID, Type, Poster } = useOpenState()
     const dispatch = useAppDispatch()
+    const [isPressed, setIsPressed] = useState(false)
 
     const {
         imdbID,
@@ -41,54 +36,26 @@ export const Content = () => {
         Ratings
     } = useOpenState()
 
-    // const handleFavorite = (e: MouseEvent<HTMLButtonElement>) => {
-    //     // console.log(imdbID)
-    //     const id = 'tt1695746'
-    //     dispatch(saveFavoriteAction(id))
-    //     dispatch(startFavoriteAction())
-    //     console.log(id)
-    //     // navigate('/search')
-    //     // if ((e.target as HTMLInputElement)?.type == 'submit') {
-    //     //     return
-    //     // }
-    // }
+    const handleFavorite = (title: string, type: string) => {
+        if (isPressed) {
+            // Если карточка уже в избранном, удалите ее
+            dispatch(removeFavoriteAction(title, type))
+        } else {
+            // В противном случае, добавьте ее в избранное
+            dispatch(saveFavoriteAction(title, type))
+            dispatch(startFavoriteAction(title, type))
+        }
 
-    const handleFavorite = (title: string) => {
-        dispatch(saveFavoriteAction(title))
-        dispatch(startFavoriteAction(title))
-        console.log(title)
+        setIsPressed((prevState) => !prevState)
     }
-
-
-    const navigate = useNavigate()
-
-    // const handleEnterSearch = (e: KeyboardEvent<HTMLInputElement>) => {
-
-    //     // dispatch(startSearchAction())
-    //     // navigate('/search')
-
-    //     if (e.key === 'Enter') {
-
-    //     }
-    // }
-
-    // const handleCopyLink = () => {
-    //     const currentURL = window.location.href
-
-    //     // Копирование текущего URL в буфер обмена
-    //     clipboardCopy(currentURL)
-
-    //     // Можно добавить обратную связь или сообщение об успешном копировании
-    //     alert('Ссылка скопирована в буфер обмена: ' + currentURL)
-    // }
 
     return (
         <div className={styles.container}>
             <div className={styles.image}>
                 <img src={Poster} alt="" className={styles.image} />
                 <div className={styles.buttons}>
-                    <p>{imdbID}</p>
-                    <button className={styles.button} onClick={() => handleFavorite(Title)}>
+                    {/* <button className={styles.button} onClick={() => handleFavorite(Title, Type)} > */}
+                    <button className={isPressed ? styles.normalButton : styles.button} onClick={() => handleFavorite(Title, Type)} >
                         <FavoritesIcon />
                     </button>
                     {/* <button className={styles.button} onClick={() => handleCopyLink}> */}

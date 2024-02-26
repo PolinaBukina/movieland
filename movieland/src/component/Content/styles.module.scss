@@ -16,6 +16,23 @@
             border-radius: 10px;
             background-color: #323537;
 
+            .normalButton {
+                width: 100%;
+                border: none;
+                background-color: #00000000;
+                padding: 1em 0;
+                border: 1px solid black;
+
+                path {
+                    fill: #FFFFFF;
+                    // stroke: red;
+                }
+
+                circle {
+                    stroke: #FFFFFF;
+                }
+            }
+
             .button {
                 width: 100%;
                 border: none;
@@ -36,6 +53,8 @@
                         stroke: #FFFFFF;
                     }
                 }
+
+
             }
         }
     }

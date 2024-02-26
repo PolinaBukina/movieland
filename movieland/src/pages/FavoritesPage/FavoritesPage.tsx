@@ -5,7 +5,6 @@ import styles from './styles.module.scss'
 export const FavoritesPage = () => {
     return (
         <div className={styles.container}>
-            {/* <img src={}/> */}
             <Favorites />
         </div>
     )

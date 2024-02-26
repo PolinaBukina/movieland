@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styles from './styles.module.scss'
-import { useThemeContext } from '../../helpers/themeContext'
+import { useThemeContext } from '../../../helpers/themeContext'
 import { useSelector } from 'react-redux'
-import { selectTheme } from '../../store/theme/selectors'
+import { selectTheme } from '../../../store/theme/selectors'
 import { useDispatch } from 'react-redux'
-import { setLightThemeAction, setDarkThemeAction } from '../../store/theme/actions'
-import { DarkIcon } from '../Icons/DarkIcon'
-import { LightIcon } from '../Icons/LightIcon'
+import { setLightThemeAction, setDarkThemeAction } from '../../../store/theme/actions'
+import { DarkIcon } from '../../Icons/DarkIcon'
+import { LightIcon } from '../../Icons/LightIcon'
 
 // type Props = {
 //     theme: string

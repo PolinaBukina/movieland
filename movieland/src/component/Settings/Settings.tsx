@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputText } from '../../component/InputText/InputText'
-import { ThemeButtons } from '../ThemeButtons/ThemeButtons'
+import { ThemeButtons } from '../Buttons/ThemeButtons/ThemeButtons'
 import styles from './styles.module.scss'
 
 export const Settings = () => {

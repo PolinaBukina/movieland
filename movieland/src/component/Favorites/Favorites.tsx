@@ -34,9 +34,6 @@ export const Favorites = () => {
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
 
-
-    // const imageUrl = useSelector((state: AppState) => state.modal.img)
-
     useEffect(() => {
         dispatch(loadPostsAsyncAction())
     }, [limit])
@@ -51,16 +48,12 @@ export const Favorites = () => {
 
     return (
         <>
-            <div className={`${styles.cardContent} ${theme}`}>
+            {/* <div className={`${styles.cardContent} ${theme}`}>
                 {
                     data.map((item, index) => (
                         <div key={item.imdbID} className={styles.card} >
-                            {/* <div key={item.id} className={styles.card}> */}
                             <div className={styles.allText}>
                                 <div className={styles.text}>
-                                    {/* <p className={styles.date}>
-                                    {item.Year}
-                                </p> */}
                                     <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
                                         style={{
                                             color: theme === 'light' ? '' : '#FFFFFF'
@@ -77,22 +70,53 @@ export const Favorites = () => {
                                     </p>
                                 </div>
                                 <div>
-                                    {/* <img className={styles.image} src={item.image} onClick={() => handleModalOpen(item.id)} /> */}
                                     <img className={styles.image} src={item.Poster} />
                                 </div>
                             </div>
                         </div>
                     ))
                 }
-            </div>
-            {/* <ShowMore onClick={handleMore} /> */}
+            </div> */}
 
-            {/* <button className={styles.button} onClick={handleMore}>
-                <p>
-                    Show more
-                </p>
-                <span className={styles.loader}></span>
-            </button> */}
+            {data.length === 0 ? (
+                <div className={styles.placeholder}>
+                    {/* <img
+                        src='../Icons/Favorites.png'
+                        alt="Placeholder Image"
+                        className={styles.placeholderImage}
+                    /> */}
+                </div>
+            ) : (
+                <div className={`${styles.cardContent} ${theme}`}>
+                    {
+                        data.map((item, index) => (
+                            <div key={item.imdbID} className={styles.card} >
+                                <div className={styles.allText}>
+                                    <div className={styles.text}>
+                                        <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
+                                            style={{
+                                                color: theme === 'light' ? '' : '#FFFFFF'
+                                            }}
+                                        >
+                                            {item.Title}
+                                        </h1>
+                                        <p className={styles.description}
+                                            style={{
+                                                color: theme === 'light' ? '' : '#FFFFFF'
+                                            }}
+                                        >
+                                            {item.Type}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <img className={styles.image} src={item.Poster} />
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            )}
         </>
     )
 }

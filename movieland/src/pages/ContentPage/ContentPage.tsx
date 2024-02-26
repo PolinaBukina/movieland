@@ -1,3 +1,14 @@
+import React from 'react'
+import { Content } from '../../component/Content/Content'
+
+export const ContentPage = () => {
+    return (
+        <div>
+            <Content />
+        </div>
+    )
+}
+
 // import React, { ChangeEvent, MouseEvent, useState } from 'react'
 // import { Card } from '../../component/Card/Card'
 // import { CardRec } from '../../component/CardRec/CardRec'
@@ -122,13 +133,3 @@
 //     )
 // }
 
-import React from 'react'
-import { Content } from '../../component/Content/Content'
-
-export const ContentPage = () => {
-    return (
-        <div>
-            <Content />
-        </div>
-    )
-}
