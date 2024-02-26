@@ -11,12 +11,12 @@ body {
 
 .dark {
   // background-color: black;
-  color: #f3f3f3;
+  color: #FFFFFF;
 }
 
 .light {
-  background-color: #f3f3f3;
-  background-color: black;
+  background-color: #FFFFFF;
+  // background-color: black;
   /* color: #313037; */
 }
 
@@ -26,7 +26,7 @@ body {
   grid-template-columns: 20% 1fr;
   margin: 0;
 
-  height: 100vh;
+  min-height: 100vh;
 
   .leftMenu {
     width: 100%;

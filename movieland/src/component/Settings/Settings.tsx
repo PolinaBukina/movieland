@@ -1,25 +1,55 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { InputText } from '../../component/InputText/InputText'
+import { selectTheme } from '../../store/theme/selectors'
 import { ThemeButtons } from '../Buttons/ThemeButtons/ThemeButtons'
 import styles from './styles.module.scss'
 
 export const Settings = () => {
+    const { theme } = useSelector(selectTheme)
+
     return (
-        <div className={styles.content}>
-            <div className={styles.profile}>
-                <h1 className={styles.header}>
+        <div className={`${styles.content} ${theme}`}>
+            <div className={styles.profile}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : ''
+                }}
+            >
+                <h1 className={styles.header}
+                    style={{
+                        color: theme === 'light' ? '#000000' : ''
+                    }}>
                     Profile
                 </h1>
-                <div className={styles.profileInfo}>
-                    <div>
+                <div className={styles.profileInfo}
+                    style={{
+                        background: theme === 'light' ? '#FFFFFF' : '',
+                        color: theme === 'light' ? '#000000' : '',
+                    }}
+                >
+                    <div
+                        style={{
+                            color: theme === 'light' ? '#000000' : '',
+                            background: theme === 'light' ? '#F3F3F3' : ''
+                        }}
+                    >
                         <p>Polina Bukina</p>
                     </div>
-                    <div>
+                    <div
+                        style={{
+                            background: theme === 'light' ? '#F3F3F3' : '',
+                            color: theme === 'light' ? '#000000' : ''
+                        }}
+                    >
                         <p>pbukina501@gmail.com</p>
                     </div>
                 </div>
             </div>
-            <div className={styles.password}>
+            <div className={styles.password}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : ''
+                }}
+            >
                 <h1 className={styles.header}>
                     Password
                 </h1>
@@ -46,7 +76,11 @@ export const Settings = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.colorMode}>
+            <div className={styles.colorMode}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : ''
+                }}
+            >
                 <h1 className={styles.header}>
                     Color Mode
                 </h1>

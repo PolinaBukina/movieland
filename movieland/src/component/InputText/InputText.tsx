@@ -28,11 +28,16 @@ export const InputText = ({ name, ref1, placeholder, type, value, errors, onChan
 
     return (
         <>
-            <label className={`${styles.label} ${theme}`}>
+            <label className={`${styles.label} ${theme}`}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : '',
+                    color: theme === 'light' ? '#000000' : ''
+                }}
+            >
                 <label
-                    style={{
-                        color: theme === 'light' ? '' : ''
-                    }}
+                // style={{
+                //     color: theme === 'light' ? '#FFFFFF' : ''
+                // }}
                 >
                     {name}
                 </label>
@@ -43,6 +48,10 @@ export const InputText = ({ name, ref1, placeholder, type, value, errors, onChan
                     placeholder={placeholder}
                     onInput={func}
                     value={text}
+                    style={{
+                        background: theme === 'light' ? '#F3F3F3' : '',
+                        // border: theme === 'light' ? '#black' : '',
+                    }}
                 // class={}
                 // defaultValue={'прилоьная штука'}
                 />

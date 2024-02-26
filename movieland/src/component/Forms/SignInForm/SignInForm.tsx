@@ -87,8 +87,16 @@ export const SignInForm = () => {
     }
 
     return (
-        <form className={styles.form} onClick={signIn}>
-            <div className={`${styles.allInputs} ${theme}`}>
+        <form className={`${styles.form} ${theme}`} onClick={signIn}
+            style={{
+                background: theme === 'light' ? '#FFFFFF' : ''
+            }}
+        >
+            <div className={`${styles.allInputs} ${theme}`}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : ''
+                }}
+            >
                 {/* <div className={`${styles.allInputs}`}> */}
                 <Title name={'Sign In'} />
                 {

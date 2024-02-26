@@ -1,9 +1,11 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { act } from 'react-dom/test-utils'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useAuthContext } from '../../helpers/authContext'
 import { useAuthState } from '../../store/auth/selectors'
 import { useRegState } from '../../store/registration/selectors'
+import { selectTheme } from '../../store/theme/selectors'
 import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
 import { UserIcon } from '../Icons/UserIcon'
 import styles from './styles.module.scss'
@@ -55,6 +57,7 @@ export const UserInfo = () => {
     // const { name, symbols } = props
     //редюсер
     const [state, dispatch] = useReducer(loginReducer, loginInitState)
+    const { theme } = useSelector(selectTheme)
     // const { isAuthhorized } = useAuthState()
     // const [isLogined, setIsLogined] = useState(false)
 
@@ -71,54 +74,70 @@ export const UserInfo = () => {
     })
 
     return (
-        // <button className={styles.button}>
-        //     <p className={styles.symbols}>
-        //         {props.symbols}
-        //     </p>
-        //     <p>
-        //         {name}
-        //     </p>
-        // </button>
-
-        // <div className={styles.userInfo} >
-        <div className={styles.userInfo} onClick={() => state.isLogined ? logout() : login()}>
+        <div className={`${styles.userInfo} ${theme}`} onClick={() => state.isLogined ? logout() : login()}>
             {
                 state.isLogined ? (
                     <>
                         <button className={styles.button}>
-                            <span className={styles.symbols}>
+                            <span className={styles.symbols}
+                                style={{
+                                    color: theme === 'light' ? '#242426' : ''
+                                }}
+                            >
                                 {state.initials}
                             </span>
-                            <span>
+                            <span
+                                style={{
+                                    color: theme === 'light' ? '#242426' : ''
+                                }}
+                            >
                                 {state.username}
                             </span>
                             <ArrowRightIcon />
-                            <nav className={styles.menu}>
-                                <ul className={styles.menuList}>
+                            <nav className={styles.menu}
+                                style={{
+                                    background: theme === 'light' ? '#FFFFFF' : ''
+                                }}
+                            >
+                                <ul className={styles.menuList}
+                                >
                                     <button className={styles.buttonItem}>
                                         <NavLink to='/signin'>
-                                            <li className={styles.item}>Edit Profile</li>
+                                            <li className={styles.item}
+                                                style={{
+                                                    color: theme === 'light' ? '#242426' : ''
+                                                }}
+                                            >
+                                                Edit Profile
+                                            </li>
                                         </NavLink>
                                     </button>
                                     <button className={styles.buttonItem}>
-                                        <li className={styles.item} onClick={logout}>Log Out</li>
+                                        <li className={styles.item} onClick={logout}
+                                            style={{
+                                                color: theme === 'light' ? '#242426' : ''
+                                            }}
+                                        >
+                                            Log Out
+                                        </li>
                                     </button>
                                 </ul>
                             </nav>
                         </button>
                     </>
                 ) : (
-                    // <button className={styles.human}>
                     <button className={styles.button}>
                         <span className={styles.symbols}>
                             <UserIcon />
                         </span>
-                        <span>
+                        <span
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}>
                             Sign In
                         </span>
                         <ArrowRightIcon />
                     </button>
-                    // </button>
                 )
             }
 

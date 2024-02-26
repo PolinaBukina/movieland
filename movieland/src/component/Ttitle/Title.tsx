@@ -1,21 +1,21 @@
 import React from 'react'
 import styles from './styles.module.scss'
-// import { selectTheme } from '../../store/theme/selectors'
-// import { useSelector } from 'react-redux'
+import { selectTheme } from '../../store/theme/selectors'
+import { useSelector } from 'react-redux'
 
 type Props = {
     name: string
 }
 
 export const Title = (props: Props) => {
-    // const { theme } = useSelector(selectTheme)
+    const { theme } = useSelector(selectTheme)
     return (
         <h1
-            // className={`${styles.title} ${theme}`}
-            className={`${styles.title}`}
-        // style={{
-        //     color: theme === 'light' ? '' : '#FFFFFF'
-        // }}
+            className={`${styles.title} ${theme}`}
+            // className={`${styles.title}`}
+            style={{
+                color: theme === 'light' ? '#000000' : ''
+            }}
         >
             {props.name}
         </h1>

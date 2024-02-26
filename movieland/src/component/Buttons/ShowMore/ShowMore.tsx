@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadPostsAsyncAction } from '../../../store/posts/actions'
 import { selectPosts } from '../../../store/posts/selectors'
 import { AppDispatch } from '../../../store/store'
+import { selectTheme } from '../../../store/theme/selectors'
 import { Card } from '../../Card/Card'
 import styles from './styles.module.scss'
 
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export const ShowMore = (props: Props) => {
+    const { theme } = useSelector(selectTheme)
     const dispatch = useDispatch<AppDispatch>()
     const { postCount, page, limit } = useSelector(selectPosts)
 
@@ -19,8 +21,14 @@ export const ShowMore = (props: Props) => {
     }
 
     return (
-        <div className={styles.container}>
-            <button className={styles.button} onClick={onNextPage}>
+        <div className={`${styles.container} ${theme}`}>
+            <button className={styles.button} onClick={onNextPage}
+                style={{
+                    background: theme === 'light' ? '#AFB2B6' : '',
+                    color: theme === 'light' ? '#FFFFFF' : '',
+                    // border: none
+                }}
+            >
                 <p>
                     Show more
                 </p>

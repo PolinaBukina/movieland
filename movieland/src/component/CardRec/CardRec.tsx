@@ -48,14 +48,14 @@ export const CardRec = () => {
                             <div className={styles.text}>
                                 <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
                                     style={{
-                                        color: theme === 'light' ? '' : '#FFFFFF'
+                                        color: theme === 'light' ? '#000000' : ''
                                     }}
                                 >
                                     {item.Title}
                                 </h1>
                                 <p className={styles.description}
                                     style={{
-                                        color: theme === 'light' ? '' : '#FFFFFF'
+                                        color: theme === 'light' ? '#000000' : ''
                                     }}
                                 >
                                     {item.Type}

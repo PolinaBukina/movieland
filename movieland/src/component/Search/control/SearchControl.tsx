@@ -6,6 +6,7 @@ import { setClose, setOpen } from '../../../store/menu/actions'
 import { selectMenu } from '../../../store/menu/selectors'
 import { saveTextAction, startSearchAction } from '../../../store/search/actions'
 import { useSearchState } from '../../../store/search/selectors'
+import { selectTheme } from '../../../store/theme/selectors'
 import { FilterIcon } from '../../Icons/FilterIcon'
 import styles from './styles.module.scss'
 
@@ -15,6 +16,7 @@ export const SearchControl = () => {
     const { text } = useSearchState()
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
+    const { theme } = useSelector(selectTheme)
 
     const toggleTextField = () => {
         setIsOpen(!isOpen)
@@ -47,7 +49,7 @@ export const SearchControl = () => {
     const close = () => dispatch(setClose())
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${theme}`} >
             {
                 // isOpen &&
                 <div className={styles.containerSearch}>
@@ -59,8 +61,15 @@ export const SearchControl = () => {
                         onChange={handleText}
                         onKeyDown={handleEnterSearch}
                         placeholder={'Search...'}
+                        style={{
+                            background: theme === 'light' ? '#FFFFFF' : ''
+                        }}
                     />
-                    <button className={styles.button} onClick={() => isOpened ? close() : open()} >
+                    <button className={styles.button} onClick={() => isOpened ? close() : open()}
+                        style={{
+                            background: theme === 'light' ? '#FFFFFF' : ''
+                        }}
+                    >
                         <FilterIcon />
                     </button>
                     {/* <input type="button" value={'search'} onChange={handleSearch} /> */}

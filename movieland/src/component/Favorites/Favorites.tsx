@@ -1,29 +1,15 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
-// import { ButtonThumbUpIcon } from '../ButtonThumbUp/ButtonThumbUpIcon'
-// import { MoreIcon } from './MoreIcon'
 import styles from './styles.module.scss'
-// import { Icon } from '../ButtonWithIcon/Icon'
 import { selectPosts } from '../../store/posts/selectors'
 import { useSelector, useDispatch } from 'react-redux'
-// import { BlogPostType } from '../../store/posts/types'
-// import { loadPostsAsyncAction } from '../../store/posts/actions'
 import { AppDispatch, AppState } from '../../store/store'
-// import { ButtonThumbDownIcon } from '../ButtonThumbDown/ButtonThumbDownIcon'
 import { Navigate, useNavigate } from 'react-router-dom'
-// import { saveIdAction, startOpenAction } from '../../store/content/actions'
-// import { useOpenState } from '../../store/content/selectors'
-// import { Modal } from '../Modal/modal'
-// import { useFavorites } from '../../store/favorite/selectors'
-// import { addToFavoritesAction, addToFavoritesAsyncAction } from '../../store/favorite/actions'
-// import { useOpenModalState } from '../../store/modal/selectors'
-// import { clearImageAction, saveIdImageAction, startImageAction } from '../../store/modal/actions'
 import { selectTheme } from '../../store/theme/selectors'
 import { loadPostsAsyncAction } from '../../store/posts/actions'
 import { saveIdAction, startOpenAction } from '../../store/content/actions'
 import { ShowMore } from '../Buttons/ShowMore/ShowMore'
 import { ButtonPrimary } from '../Buttons/ButtonPrimary/ButtonPrimary'
 import { useFavoriteState } from '../../store/favorites/selectors'
-// import { setOpen } from '../../store/modal/actions'
 
 export const Favorites = () => {
     const [isModalActive, setModalActive] = useState(false)
@@ -48,43 +34,9 @@ export const Favorites = () => {
 
     return (
         <>
-            {/* <div className={`${styles.cardContent} ${theme}`}>
-                {
-                    data.map((item, index) => (
-                        <div key={item.imdbID} className={styles.card} >
-                            <div className={styles.allText}>
-                                <div className={styles.text}>
-                                    <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
-                                        style={{
-                                            color: theme === 'light' ? '' : '#FFFFFF'
-                                        }}
-                                    >
-                                        {item.Title}
-                                    </h1>
-                                    <p className={styles.description}
-                                        style={{
-                                            color: theme === 'light' ? '' : '#FFFFFF'
-                                        }}
-                                    >
-                                        {item.Type}
-                                    </p>
-                                </div>
-                                <div>
-                                    <img className={styles.image} src={item.Poster} />
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div> */}
-
             {data.length === 0 ? (
                 <div className={styles.placeholder}>
-                    {/* <img
-                        src='../Icons/Favorites.png'
-                        alt="Placeholder Image"
-                        className={styles.placeholderImage}
-                    /> */}
+
                 </div>
             ) : (
                 <div className={`${styles.cardContent} ${theme}`}>
@@ -95,14 +47,14 @@ export const Favorites = () => {
                                     <div className={styles.text}>
                                         <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
                                             style={{
-                                                color: theme === 'light' ? '' : '#FFFFFF'
+                                                color: theme === 'light' ? '#000000' : '',
                                             }}
                                         >
                                             {item.Title}
                                         </h1>
                                         <p className={styles.description}
                                             style={{
-                                                color: theme === 'light' ? '' : '#FFFFFF'
+                                                color: theme === 'light' ? '#000000' : '',
                                             }}
                                         >
                                             {item.Type}

@@ -3,6 +3,7 @@ import { InputText } from '../../component/InputText/InputText'
 import styles from './styles.module.scss'
 import { Title } from '../../component/Ttitle/Title'
 import { ButtonPrimary } from '../../component/Buttons/ButtonPrimary/ButtonPrimary'
+import { Footer } from '../../component/Footer/Footer'
 
 export const NewPasswordPage = () => {
     const inputRef = useRef<HTMLInputElement>(null)
@@ -31,6 +32,7 @@ export const NewPasswordPage = () => {
                     </div>
                     <ButtonPrimary name={"Set password"} />
                 </form>
+                <Footer />
             </div>
         </>
     )

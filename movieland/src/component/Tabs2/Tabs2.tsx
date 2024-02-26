@@ -41,12 +41,18 @@ export const Tabs2 = () => {
     }
 
     return (
-        <div className={`${styles.all} ${theme}`}>
+        <div className={`${styles.all} ${theme}`}
+            style={{
+                background: theme === 'light' ? '#FFFFFF' : '',
+                // color: theme === 'light' ? '#00000' : ''
+            }}
+        >
             <div className={styles.tabsWrapper}>
                 <div className={styles.tabs}
-                    style={{
-                        color: theme === 'light' ? '' : '#FFFFFF'
-                    }}
+                // style={{
+                //     color: theme === 'light' ? '#000000' : '',
+                //     // background: theme === 'light' ? '#f3f3f3' : ''
+                // }}
                 >
                     {
                         tabs.map((currentTabName, index) => (

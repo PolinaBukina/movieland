@@ -39,15 +39,15 @@ export const SearchResults = () => {
                             </p> */}
                                     <h1 className={styles.header} onClick={() => handleOpen(item.imdbID)}
                                         style={{
-                                            color: theme === 'light' ? '' : '#FFFFFF'
+                                            color: theme === 'light' ? '#000000' : ''
                                         }}
                                     >
                                         {item.Title}
                                     </h1>
                                     <p className={styles.description}
-                                        style={{
-                                            color: theme === 'light' ? '' : '#FFFFFF'
-                                        }}
+                                    // style={{
+                                    //     color: theme === 'light' ? '' : '#FFFFFF'
+                                    // }}
                                     >
                                         {item.Type}
                                     </p>

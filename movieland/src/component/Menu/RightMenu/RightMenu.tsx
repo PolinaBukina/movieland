@@ -120,6 +120,7 @@ import { useSearchState } from '../../../store/search/selectors'
 import { clearTextAction, saveGenreAction, saveTextAction, startSearchAction, saveRatingsToAction, saveRatingsFromAction, saveYearsToAction, saveYearsFromAction, saveCountryAction } from '../../../store/search/actions'
 import { useAppDispatch } from '../../../helpers/useAppDispatch'
 import Select from '../../Select/Select'
+import { selectTheme } from '../../../store/theme/selectors'
 
 // type SearchType = {
 //     genre?: string
@@ -130,6 +131,7 @@ import Select from '../../Select/Select'
 export const RightMenu = () => {
     const { isOpened } = useSelector(selectMenu)
     const { isAuthhorized } = useAuthState()
+    const { theme } = useSelector(selectTheme)
     // const [data, setData] = useState<Partial<SearchType>>({})
     const dispatch = useAppDispatch()
     const close = () => dispatch(setClose())
@@ -196,21 +198,43 @@ export const RightMenu = () => {
     }
 
     return (
-        <form className={styles.menu} onClick={handleSearch}>
+        <form className={`${styles.menu} ${theme}`} onClick={handleSearch}
+            style={{
+                background: theme === 'light' ? '#FFFFFF' : ''
+            }}
+        >
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <p>Filters</p>
+                    <p
+                        style={{
+                            color: theme === 'light' ? '#242426' : ''
+                        }}
+                    >
+                        Filters
+                    </p>
                     <button className={styles.buttonClose} onClick={close} >
                         <CloseIcon />
                     </button>
                 </div>
                 <div className={styles.tab}>
-                    <p>Sort by</p>
+                    <p
+                        style={{
+                            color: theme === 'light' ? '#242426' : ''
+                        }}
+                    >
+                        Sort by
+                    </p>
                     <Tabs2 />
                 </div>
                 <div className={styles.filterMovie}>
                     <div>
-                        <p>Full or short movie name</p>
+                        <p
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}
+                        >
+                            Full or short movie name
+                        </p>
                         <input
                             id={'search'}
                             type="text"
@@ -222,8 +246,13 @@ export const RightMenu = () => {
                         />
                     </div>
                     <div className={styles.country}>
-                        <p>Country</p>
-                        {/* <Select /> */}
+                        <p
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}
+                        >
+                            Country
+                        </p>
                         <select className={styles.select} onChange={handleCountry}>
                             <option className={styles.option} value="" >
                                 Select Country
@@ -240,13 +269,16 @@ export const RightMenu = () => {
                             <option className={styles.option} value="Japan">
                                 Japan
                             </option>
-                            {/* <option className={styles.option} value="movie">
-                                movie
-                            </option> */}
                         </select>
                     </div>
                     <div>
-                        <p>Genre</p>
+                        <p
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}
+                        >
+                            Genre
+                        </p>
                         <input
                             id={'search1'}
                             type="text"
@@ -258,7 +290,13 @@ export const RightMenu = () => {
                         />
                     </div>
                     <div className={styles.years}>
-                        <p>Years</p>
+                        <p
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}
+                        >
+                            Years
+                        </p>
                         <div className={styles.yearsInput}>
                             <input
                                 id={'search2'}
@@ -281,7 +319,13 @@ export const RightMenu = () => {
                         </div>
                     </div>
                     <div className={styles.years}>
-                        <p>Rating</p>
+                        <p
+                            style={{
+                                color: theme === 'light' ? '#242426' : ''
+                            }}
+                        >
+                            Rating
+                        </p>
                         <div className={styles.yearsInput}>
 
                             <input
@@ -312,7 +356,7 @@ export const RightMenu = () => {
                 <ButtonSecondary name={'Clear filter'} onClick={() => handleClear} />
                 <ButtonPrimary name={'Show results'} onClick={() => handleSearch} />
             </div>
-        </form>
+        </form >
         // </div >
     )
 }

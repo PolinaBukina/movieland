@@ -16,8 +16,8 @@ import { TrendsIcon } from '../../Icons/TrendsIcon'
 import { FavoritesIcon } from '../../Icons/FavoritesIcon'
 import { SettingsIcon } from '../../Icons/SettingsIcon'
 import { Footer } from '../../Footer/Footer'
+import { selectTheme } from '../../../store/theme/selectors'
 // import { useAuthState } from '../../store/auth/selectors'
-// import { selectTheme } from '../../store/theme/selectors'
 
 const LeftMenu = () => {
     const { isOpened } = useSelector(selectMenu)
@@ -26,7 +26,7 @@ const LeftMenu = () => {
     const dispatch = useDispatch()
     const close = () => dispatch(setClose())
 
-    // const { theme } = useSelector(selectTheme)
+    const { theme } = useSelector(selectTheme)
 
     // if (!isOpened) {
     //     return null
@@ -34,77 +34,91 @@ const LeftMenu = () => {
 
     return (
         <div
-            className={`${styles.menu}`}
-        // className={`${styles.menu} ${theme}`}
-        // style={{ background: theme == 'light' ? '#FFFFFF' : '#1e1d1d' }}
+            // className={`${styles.menu}`}
+            className={`${styles.menu} ${theme}`}
+            style={{ background: theme == 'light' ? '#FFFFFF' : '' }}
         >
             {/* <div className={styles.content}> */}
             <div className={styles.logo}>
-                <p >movie<span>land</span></p>
-                {/* <div className={styles.leftMenu}> */}
-
+                <p >movie
+                    <span
+                        style={{
+                            color: theme === 'light' ? '#000000' : ''
+                        }}
+                    >
+                        land
+                    </span>
+                </p>
             </div>
             <ul >
 
                 <button className={styles.button}>
                     <NavLink to='/' >
                         <li
-                        // style={{
-                        //     background: theme === 'light' ? '' : '#1e1d1d',
-                        //     color: theme === 'light' ? '' : '#FFFFFF'
-                        // }}
+                            style={{
+                                background: theme === 'light' ? '#FFFFFFF' : '',
+                                color: theme === 'light' ? '#AFB2B6' : '',
+                                fill: theme === 'light' ? '#AFB2B6' : ''
+                            }}
                         >
-                            <HomeIcon /> Home
+                            <HomeIcon />
+                            <p>
+                                Home
+                            </p>
                         </li>
                     </NavLink>
                 </button>
                 <button className={styles.button}>
                     <NavLink to='/trends' >
                         <li
-                        // style={{
-                        //     background: theme === 'light' ? '' : '#1e1d1d',
-                        //     color: theme === 'light' ? '' : '#FFFFFF'
-                        // }}
+                            style={{
+                                background: theme === 'light' ? '#FFFFFFF' : '',
+                                color: theme === 'light' ? '#AFB2B6' : '',
+                                fill: theme === 'light' ? '#AFB2B6' : ''
+                            }}
                         >
-                            <TrendsIcon /> Trends
+                            <TrendsIcon />
+                            <p>
+                                Trends
+                            </p>
                         </li>
                     </NavLink>
                 </button>
                 <button className={styles.button}>
                     <NavLink to='/favorites' >
                         <li
-                        // style={{
-                        //     background: theme === 'light' ? '' : '#1e1d1d',
-                        //     color: theme === 'light' ? '' : '#FFFFFF'
-                        // }}
+                            style={{
+                                background: theme === 'light' ? '#FFFFFFF' : '',
+                                color: theme === 'light' ? '#AFB2B6' : '',
+                                fill: theme === 'light' ? '#AFB2B6' : ''
+                            }}
                         >
-                            <FavoritesIcon /> Favorites
+                            <FavoritesIcon />
+                            <p>
+                                Favorites
+                            </p>
                         </li>
                     </NavLink>
                 </button>
                 <button className={styles.button}>
                     <NavLink to='/settings' >
                         <li
-                        // style={{
-                        //     background: theme === 'light' ? '' : '#1e1d1d',
-                        //     color: theme === 'light' ? '' : '#FFFFFF'
-                        // }}
+                            style={{
+                                background: theme === 'light' ? '#FFFFFFF' : '',
+                                color: theme === 'light' ? '#AFB2B6' : '',
+                                fill: theme === 'light' ? '#AFB2B6' : ''
+                            }}
                         >
-                            <SettingsIcon /> Settings
+                            <SettingsIcon />
+                            <p>
+                                Settings
+                            </p>
                         </li>
                     </NavLink>
                 </button>
 
             </ul>
-            {/* <div>
-                    {/* <ThemeButtons /> 
-                    <NavLink to='/signup'>
-                        <ButtonSecondary name={'Sign Up'} />
-                    </NavLink>
-                </div> */}
-
             <Footer />
-            {/* </div> */}
         </div>
     )
 }

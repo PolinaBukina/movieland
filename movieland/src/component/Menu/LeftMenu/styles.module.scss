@@ -77,8 +77,16 @@
                 // width: 70%;
                 justify-content: space-around;
 
+                p {
+                    margin: 0;
+
+                    &:hover {
+                        color: #7B61FF;
+                    }
+                }
+
                 &:hover {
-                    color: #7B61FF;
+
 
                     path {
                         fill: #7B61FF;

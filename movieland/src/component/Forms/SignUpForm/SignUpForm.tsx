@@ -5,7 +5,7 @@ import {
     useState
 } from 'react'
 import styles from './styles.module.scss'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { InputText } from '../../InputText/InputText'
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary'
@@ -16,6 +16,7 @@ import {
     setUsernameAction
 } from '../../../store/registration/actions'
 import { Title } from '../../Ttitle/Title'
+import { selectTheme } from '../../../store/theme/selectors'
 
 type RegType = {
     username: string
@@ -25,6 +26,7 @@ type RegType = {
 }
 
 export const SignUpForm = () => {
+    const { theme } = useSelector(selectTheme)
     const formData = useRegState()
     const dispatch = useAppDispatch()
     const [errors, setErrors] = useState<Partial<RegType>>({})
@@ -85,7 +87,11 @@ export const SignUpForm = () => {
     }
 
     return (
-        <form action="" className={styles.form} onClick={signUp}>
+        <form action="" className={`${styles.form} ${theme}`} onClick={signUp}
+            style={{
+                background: theme === 'light' ? '#FFFFFF' : ''
+            }}
+        >
             <div>
                 {
                     formData.isSuccecRegistration?.toString()
@@ -98,7 +104,11 @@ export const SignUpForm = () => {
                 }
             </div>
 
-            <div className={styles.allInputs}>
+            <div className={styles.allInputs}
+                style={{
+                    background: theme === 'light' ? '#FFFFFF' : ''
+                }}
+            >
                 <Title name={'Sign Up'} />
                 {
                     formData.isSuccecRegistration?.toString()

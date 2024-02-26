@@ -18,15 +18,12 @@
 
             .text {
                 flex: 1;
-                // padding: 10px;
 
                 .header {
                     display: flex;
                     align-items: center;
                     max-height: 24px;
 
-                    // height: 88px;
-                    // overflow: hidden;
                     text-overflow: ellipsis;
 
                     font-family: Exo 2;
@@ -67,20 +64,9 @@
                 height: 350px;
                 width: 100%;
                 object-fit: cover;
-                /* margin-left: 30px; */
                 cursor: pointer;
                 border-radius: 20px;
             }
         }
     }
-}
-
-.image1 {
-    height: 250px;
-    width: 250px;
-    // height: 10%;
-    object-fit: cover;
-    margin-left: 30px;
-    cursor: pointer;
-    border: 2em solid rgba(53, 53, 53, 0.5);
 }
