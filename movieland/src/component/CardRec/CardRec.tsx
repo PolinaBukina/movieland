@@ -1,20 +1,15 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from './styles.module.scss'
-import { selectPosts } from '../../store/posts/selectors'
 import { useSelector, useDispatch } from 'react-redux'
-import { AppDispatch, AppState } from '../../store/store'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { AppDispatch} from '../../store/store'
+import { useNavigate } from 'react-router-dom'
 import { selectTheme } from '../../store/theme/selectors'
-import { loadPostsAsyncAction } from '../../store/posts/actions'
 import { saveIdAction, startOpenAction } from '../../store/content/actions'
 import { loadRecPostsAsyncAction } from '../../store/recposts/actions'
 import { selectRecPosts } from '../../store/recposts/selectors'
 
 export const CardRec = () => {
-    // const [isModalActive, setModalActive] = useState(false)
     const { theme } = useSelector(selectTheme)
-
-    // const { postlist, limit, page } = useSelector(selectPosts)
     const { recpostlist, reclimit, page } = useSelector(selectRecPosts)
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
@@ -31,15 +26,7 @@ export const CardRec = () => {
         document.documentElement.scrollTop = 0
     }
 
-    // const handleAddFavorite = (key: any) => {
-    //     dispatch(addToFavoritesAction(key))
-    //     console.log(key)
-    //     dispatch(addToFavoritesAsyncAction())
-    //     // dispatch(favoritesArrayAction())
-    // }
-
     return (
-        // <div className={`${styles.cardContent} ${theme}`}>
         <div className={`${styles.cardContent} ${theme}`} >
             {
                 recpostlist.map((item, index) => (

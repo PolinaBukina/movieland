@@ -1,23 +1,13 @@
 body {
   background-color: black;
-
-  // background-image: url('../src/component/Icons/BackgroundToForm.png');
-  // background-image: rgba(0, 0, 0, 0.5);
-  // background-repeat: no-repeat;
-  // background-size: cover;
-
-  /* backdrop-filter: blur(5px); */
 }
 
 .dark {
-  // background-color: black;
   color: #FFFFFF;
 }
 
 .light {
   background-color: #FFFFFF;
-  // background-color: black;
-  /* color: #313037; */
 }
 
 .main {
@@ -40,4 +30,11 @@ body {
     padding: 10px;
   }
 
+}
+
+@media (max-width: 940px) {
+
+  .main {
+    grid-template-columns: 1fr;
+  }
 }

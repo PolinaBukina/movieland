@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent, useState } from 'react'
+import React, { useState } from 'react'
 import { CardRec } from '../../component/CardRec/CardRec'
 import { FavoritesIcon } from '../../component/Icons/FavoritesIcon'
 import { ShareIcon } from '../../component/Icons/ShareIcon'
@@ -52,8 +52,7 @@ export const Content = () => {
                 <div className={styles.buttons}
                     style={{
                         background: theme === 'light' ? '#FFFFFF' : '',
-                        border: theme === 'light' ? '#FFFFFF' : '',
-                        // border: none
+                        border: theme === 'light' ? '#FFFFFF' : ''
                     }}
                 >
                     <button className={isPressed ? styles.normalButton : styles.button} onClick={() => handleFavorite(Title, Type)}

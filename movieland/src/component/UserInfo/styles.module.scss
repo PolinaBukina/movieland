@@ -45,8 +45,6 @@
 .menu {
     position: absolute;
     top: calc(100% + 5px);
-    // right: 10px;
-    // width: 20%;
     background-color: #242426;
     padding: 25px 0;
     border-radius: 10px;
@@ -87,19 +85,3 @@
         }
     }
 }
-
-// .human {
-//     // width: 100%;
-//     width: 84px;
-//     height: 84px;
-//     background-color: #2231AA;
-//     border: 1px solid #5360CD;
-
-//     .userInfo {
-//         color: white;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         // width: 100%;
-//     }
-// }

@@ -1,138 +1,32 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import styles from './styles.module.scss'
-// import { selectMenu } from '../../store/menu/selectors'
-// import { UserInfo } from '../UserInfo/UserInfo'
-// import { ThemeButtons } from '../ThemeButtons/ThemeButtons'
-// import { ButtonSecondary } from '../ButtonSecondary/ButtonSecondary'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { selectMenu } from '../../../store/menu/selectors'
-import { useAuthState } from '../../../store/auth/selectors'
-import { UserInfo } from '../../UserInfo/UserInfo'
 import { ButtonSecondary } from '../../Buttons/ButtonSecondary/ButtonSecondary'
-// import { useAuthState } from '../../store/auth/selectors'
-// import { selectTheme } from '../../store/theme/selectors'
 
-// const RightMenu = () => {
-//     const { isOpened } = useSelector(selectMenu)
-//     const { isAuthhorized } = useAuthState()
-//     // const { theme } = useSelector(selectTheme)
-
-//     if (!isOpened) {
-//         return null
-//     }
-
-//     // const [data, setData] = useState<BlogPostType[]>([])
-//     // const url = 'https://mockside.vercel.app/api/images/?limit=4'
-
-//     // useEffect(() => {
-//     //     fetch(url)
-//     //         .then(res => res.json())
-//     //         .then(res => setData(res.items))
-//     // }, [])
-
-//     // return (
-//     //     <div>
-//     //         {
-//     //             data.map(item => (
-//     //                 <div>
-//     //                     <img src={item.url} alt="картинка" />
-//     //                 </div>
-//     //             ))
-//     //         }
-//     //     </div>
-//     // )
-
-//     // const active = theme
-
-//     return (
-//         <div
-//             className={`${styles.menu}`}
-//         // className={`${styles.menu} ${theme}`}
-//         // style={{ background: theme == 'light' ? '#FFFFFF' : '#1e1d1d' }}
-//         >
-//             <ul >
-//                 {
-//                     isAuthhorized && (
-//                         <UserInfo />
-//                     )
-//                 }
-
-//                 {/* {data.map((item, index) => (
-//                     <button className={styles.button}>
-//                         <li key={index}>{item}</li>
-//                     </button>
-//                 ))} */}
-//                 {/* <NavLink to='/'>
-//                     <button className={styles.button}>
-//                         <li>Home</li>
-//                     </button>
-//                 </NavLink>
-//                 <NavLink to='/addpost'>
-//                     <button className={styles.button}>
-//                         <li>Add post</li>
-//                     </button>
-//                 </NavLink> */}
-//                 <button className={styles.button}>
-//                     <NavLink to='/' >
-//                         <li
-//                         // style={{
-//                         //     background: theme === 'light' ? '' : '#1e1d1d',
-//                         //     color: theme === 'light' ? '' : '#FFFFFF'
-//                         // }}
-//                         >Home</li>
-//                     </NavLink>
-//                 </button>
-//                 {
-//                     isAuthhorized && (
-//                         <button className={styles.button} >
-//                             <NavLink to='/addpost'>
-//                                 <li
-//                                 // style={{
-//                                 //     background: theme === 'light' ? '' : '#1e1d1d',
-//                                 //     color: theme === 'light' ? '' : '#FFFFFF'
-//                                 // }}
-//                                 >Add post</li>
-//                             </NavLink>
-//                         </button>
-//                     )
-//                 }
-//             </ul>
-//             <div>
-//                 {/* <ThemeButtons /> */}
-//                 <NavLink to='/signup'>
-//                     <ButtonSecondary name={'Sign Up'} />
-//                 </NavLink>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default RightMenu
-
-
-import React, { ChangeEvent, FormEvent, KeyboardEvent, MouseEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, MouseEvent } from 'react'
 import { CloseIcon } from '../../Icons/CloseIcon'
 import { Tabs2 } from '../../Tabs2/Tabs2'
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary'
 import { setClose } from '../../../store/menu/actions'
-import { InputText } from '../../InputText/InputText'
 import { useSearchState } from '../../../store/search/selectors'
-import { clearTextAction, saveGenreAction, saveTextAction, startSearchAction, saveRatingsToAction, saveRatingsFromAction, saveYearsToAction, saveYearsFromAction, saveCountryAction } from '../../../store/search/actions'
+import {
+    clearTextAction,
+    saveGenreAction,
+    saveTextAction,
+    startSearchAction,
+    saveRatingsToAction,
+    saveRatingsFromAction,
+    saveYearsToAction,
+    saveYearsFromAction,
+    saveCountryAction
+} from '../../../store/search/actions'
 import { useAppDispatch } from '../../../helpers/useAppDispatch'
-import Select from '../../Select/Select'
 import { selectTheme } from '../../../store/theme/selectors'
-
-// type SearchType = {
-//     genre?: string
-//     name?: string
-//     detail: string
-// }
 
 export const RightMenu = () => {
     const { isOpened } = useSelector(selectMenu)
-    const { isAuthhorized } = useAuthState()
     const { theme } = useSelector(selectTheme)
-    // const [data, setData] = useState<Partial<SearchType>>({})
     const dispatch = useAppDispatch()
     const close = () => dispatch(setClose())
 
@@ -166,14 +60,6 @@ export const RightMenu = () => {
     const handleRatingTo = (e: ChangeEvent<HTMLInputElement>) => { // 
         dispatch(saveRatingsToAction(e.target.value))
     }
-
-    // const handleNameSearch = (e: KeyboardEvent<HTMLInputElement>): void => {
-    //     if (e.key === 'Enter') {
-    //         dispatch(startSearchAction()) //
-    //         // navigate('/search')
-    //         console.log()
-    //     }
-    // }
 
     const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
@@ -357,11 +243,5 @@ export const RightMenu = () => {
                 <ButtonPrimary name={'Show results'} onClick={() => handleSearch} />
             </div>
         </form >
-        // </div >
     )
 }
-
-// function saveCountryAction(value: string): any {
-//     throw new Error('Function not implemented.')
-// }
-

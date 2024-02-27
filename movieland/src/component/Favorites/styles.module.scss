@@ -76,3 +76,41 @@
         }
     }
 }
+
+
+
+@media (max-width: 1180px) {
+
+    .cardContent {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .cardContent {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+    }
+}
+
+@media (max-width: 510px) {
+
+    .cardContent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .cardContent {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+    }
+}

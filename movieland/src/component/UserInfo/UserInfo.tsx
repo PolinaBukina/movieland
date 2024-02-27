@@ -1,19 +1,10 @@
-import React, { useContext, useReducer, useState } from 'react'
-import { act } from 'react-dom/test-utils'
+import React, { useReducer} from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { useAuthContext } from '../../helpers/authContext'
-import { useAuthState } from '../../store/auth/selectors'
-import { useRegState } from '../../store/registration/selectors'
 import { selectTheme } from '../../store/theme/selectors'
 import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
 import { UserIcon } from '../Icons/UserIcon'
 import styles from './styles.module.scss'
-
-type Props = {
-    name: string
-    symbols: string
-}
 
 // создание редюсера
 type LoginState = {
@@ -54,14 +45,8 @@ const loginReducer = (state: LoginState, action: LoginAction): LoginState => { /
 
 
 export const UserInfo = () => {
-    // const { name, symbols } = props
-    //редюсер
     const [state, dispatch] = useReducer(loginReducer, loginInitState)
     const { theme } = useSelector(selectTheme)
-    // const { isAuthhorized } = useAuthState()
-    // const [isLogined, setIsLogined] = useState(false)
-
-    const { username } = useRegState()
 
     const login = () => dispatch({
         type: 'login',

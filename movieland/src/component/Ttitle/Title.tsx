@@ -12,7 +12,6 @@ export const Title = (props: Props) => {
     return (
         <h1
             className={`${styles.title} ${theme}`}
-            // className={`${styles.title}`}
             style={{
                 color: theme === 'light' ? '#000000' : ''
             }}

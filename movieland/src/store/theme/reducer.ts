@@ -1,7 +1,7 @@
 import { ThemeAction, ThemeState } from "./types"
 
 export const themeInitState: ThemeState = {
-    theme: 'light'
+    theme: 'dark'
 }
 
 export const themeReducer = (state = themeInitState, action: ThemeAction): ThemeState => { //state i action здесь всегда!! state - предыдущее состояние, или текущее на данный момент

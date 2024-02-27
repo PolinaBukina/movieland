@@ -18,13 +18,11 @@
             border-radius: 10px 0 0 10px;
 
             &::placeholder {
-                // color: #535fcd00;
                 font-family: Exo 2;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
                 line-height: 24px;
-                /* 150% */
             }
 
             &:focus {
@@ -37,7 +35,6 @@
     }
 
     .button {
-        // width: 82.4px;
         height: 100%;
         flex-shrink: 0;
         background: #323537;
@@ -53,3 +50,4 @@
         }
     }
 }
+

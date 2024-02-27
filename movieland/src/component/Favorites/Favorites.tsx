@@ -1,21 +1,18 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from './styles.module.scss'
 import { selectPosts } from '../../store/posts/selectors'
 import { useSelector, useDispatch } from 'react-redux'
-import { AppDispatch, AppState } from '../../store/store'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { AppDispatch } from '../../store/store'
+import { useNavigate } from 'react-router-dom'
 import { selectTheme } from '../../store/theme/selectors'
 import { loadPostsAsyncAction } from '../../store/posts/actions'
 import { saveIdAction, startOpenAction } from '../../store/content/actions'
-import { ShowMore } from '../Buttons/ShowMore/ShowMore'
-import { ButtonPrimary } from '../Buttons/ButtonPrimary/ButtonPrimary'
 import { useFavoriteState } from '../../store/favorites/selectors'
 
 export const Favorites = () => {
-    const [isModalActive, setModalActive] = useState(false)
     const { theme } = useSelector(selectTheme)
 
-    const { postlist, limit, page } = useSelector(selectPosts)
+    const { limit } = useSelector(selectPosts)
     const { data } = useSelector(useFavoriteState)
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()

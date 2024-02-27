@@ -1,14 +1,4 @@
-import React from 'react'
-import logo from './logo.svg'
 import './App.scss'
-import { ButtonPrimary } from './component/Buttons/ButtonPrimary/ButtonPrimary';
-import { ButtonSecondary } from './component/Buttons/ButtonSecondary/ButtonSecondary';
-// import { SearchResults } from './component/Search/results/SearchResults';
-import { SearchControl } from './component/Search/control/SearchControl';
-import { SignInForm } from './component/Forms/SignInForm/SignInForm';
-import { SignUpForm } from './component/Forms/SignUpForm/SignUpForm';
-import { Footer } from './component/Footer/Footer';
-import { Header } from './component/Header/Header';
 import { SignInPage } from './pages/SignInPage/SignInPage';
 import { SignUpPage } from './pages/SignUpPage/SignUpPage';
 import { ResetPage } from './pages/ResetPage/ResetPage';
@@ -19,35 +9,17 @@ import { MainPage } from './pages/MainPage/MainPage';
 import SettingsPage from './pages/SettingsPage/SettingsPage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 import { ContentPage } from './pages/ContentPage/ContentPage';
-import { Favorites } from './component/Favorites/Favorites';
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
 import { TrendsPage } from './pages/TrendsPage/TrendsPage';
 
 function App() {
   return (
     <div>
-      {/* <ButtonPrimary name={'Primary button'} />
-      <ButtonSecondary name={'Secondary button'} /> */}
-      {/* <SearchControl/> */}
-
-      {/* <Header /> */}
-      {/* <SignInForm />
-      <SignUpForm /> */}
-
-      {/* <SignInPage /> */}
-      {/* <SignUpPage /> */}
-      {/* <ResetPage /> */}
-      {/* <NewPasswordPage /> */}
-      {/* <Burger /> */}
-
-      {/* <Footer /> */}
-
       <Routes>
-        {/* <Route path='/' element={<Layout2 />}> */}
         <Route path='signin' element={<SignInPage />} />
         <Route path='signup' element={<SignUpPage />} />
         <Route path='reset' element={<ResetPage />} />
-        {/* </Route> */}
+        <Route path='newpassword' element={<NewPasswordPage />} />
         <Route path='/' element={<Layout />}>
           {/* стартовый путь */}
           <Route index element={<MainPage />} />
@@ -56,24 +28,8 @@ function App() {
           <Route path='search' element={<SearchPage />} />
           <Route path='favorites' element={<FavoritesPage />} />
           <Route path='trends' element={<TrendsPage />} />
-
-          {/* <Route path='newpassword' element={<NewPassword />} /> */}
-          {/* <Route path='addpost' element={
-          <RequireAuth>
-            <AddPostPage />
-          </RequireAuth>
-        } /> */}
-          <Route path='reset' element={<ResetPage />} />
-          {/* <Route path='succes' element={<SuccessPage />} />
-        <Route path='content:id' element={<ContentPage />} />
-        <Route path='favorites' element={<Favorites />} />
-        <Route path='activate' element={<AtivationPage />} /> */}
         </Route>
-
-        {/* <Route path='*' element={<Error404Page />} /> */}
-
       </Routes>
-
     </div>
   )
 }
